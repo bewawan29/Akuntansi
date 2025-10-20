@@ -8,6 +8,7 @@ include ("hitung.php");
 include ("koneksi.php");
 include ("2025hitung.php");
 include ("juni/2025hitungjuni.php");
+include ("juli/2025hitungjuli.php");
 include ("agustus/2025hitungagustus.php");
 include ("september/2025hitungseptember.php");
 include ("Oktober/2025hitungoktober.php");
@@ -289,8 +290,8 @@ include ("Oktober/2025hitungoktober.php");
                     <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_juni,2,",",".");?>"><br>
                 </div>
                 <div class="main2">
-                    <a href="januari.php" id="p02">JULI </a> <br>
-                    <input type="text" id="p01" value="<?php echo ""."".number_format($output_debit_april,2,",",".");?>"> <br>
+                    <a href="juli/2025juli.php" id="p02">JULI </a> <br>
+                    <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_juli,2,",",".");?>"> <br>
                     <a href="agustus/2025agustus.php" id="p02">AGUSTUS </a> <br>
                     <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_agustus,2,",",".");?>"> <br>
                     <a href="september/2025september.php" id="p02">SEPTEMBER </a> <br>
