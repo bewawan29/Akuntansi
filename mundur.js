@@ -51,13 +51,13 @@ const hitungmundur = setInterval(function () {
 
   const teks = document.getElementById("count");
   teks.innerHTML =
-    menit;
+    //menit+detik;
     // "waktu anda tinggal :" +
     //   // hari +
     //   // " hari, " +
     //   // jam +
     //   // " jam " +
-    //menit + detik ;
+    menit ;
 
   if (selisih < 0) {
     clearInterval(hitungmundur);

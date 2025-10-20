@@ -17,6 +17,8 @@ include ("juli/2025hitungjuli.php");
 include ("agustus/2025hitungagustus.php");
 include ("september/2025hitungseptember.php");
 include ("Oktober/2025hitungoktober.php");
+include ("november/2025hitungnovember.php");
+include ("desember/2025hitungdesember.php");
 
 ?>
 <!DOCTYPE html>
@@ -303,10 +305,10 @@ include ("Oktober/2025hitungoktober.php");
                     <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_september,2,",S",".");?>"> <br>                   
                     <a href="Oktober/2025oktober.php" id="p02">OKTOBER </a> <br>
                     <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_oktober,2,",",".");?>"> <br>
-                    <a href="januari.php" id="p02">NOVEMBER </a> <br>
-                    <input type="text" id="p01" value="<?php echo ""."".number_format($output_kredit_april,2,",",".");?>"> <br>
-                    <a href="januari.php" id="p02">DESEMBER </a> <br>
-                    <input type="text" id="p01" value="<?php echo ""."".number_format($output_kredit_april,2,",",".");?>">
+                    <a href="november/2025november.php" id="p02">NOVEMBER </a> <br>
+                    <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_november,2,",",".");?>"> <br>
+                    <a href="desember/2025desember.php" id="p02">DESEMBER </a> <br>
+                    <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_desember,2,",",".");?>">
                 </div>
                 <div class="main3">
                     <p>BCA :</p>
