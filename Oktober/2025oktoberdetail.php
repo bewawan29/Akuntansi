@@ -1,11 +1,12 @@
-<?php
+6<?php
     session_start();
     if(!isset($_SESSION["username"])){
       header("Location : ../index.php");
       exit;
     }
     include ("../koneksi.php");
-    include ("../hitung.php");
+    //include ("../hitung.php");
+    include ("2025hitungoktober.php");
 ?>
 
 <!DOCTYPE html>
@@ -210,7 +211,7 @@
                         <select type="text" name="jenis">
                             <!-- <option>Tanggal</option> -->
                             <option>Bulan</option>
-                            <!-- <option>Transaki</option> -->
+                            <!--<option>Transaki</option> -->
                             <option>Type</option>
                             <option>Bank</option>
                             <option>Bagian</option>
@@ -238,6 +239,7 @@
                 </div>
             </div>
             <div class="main">
+                <!--
                 <div class="main1">
                     Debit :
                     <input type="text" name="debit" value="<?php echo ""."".number_format($output_debit,2,",",".");?>">
@@ -245,8 +247,8 @@
                     <input type="text" name="debit" value="<?php echo ""."".number_format($output_kredit,2,",",".");?>">
                     Saldo :
                     <input type="text" name="debit" value="<?php echo ""."".number_format($saldo,2,",",".");?>">
-                </div>
-                
+                </div> -->
+            
                 <div class="main2">
                     <table>
                         <tr>
@@ -302,6 +304,15 @@
                         ?>
                     </table>
                     
+                </div>
+
+                <div class="main1">
+                    Debit :
+                    <input type="text" name="debit" value="<?php echo ""."".number_format($output_debit,2,",",".");?>">
+                    Kredit :
+                    <input type="text" name="debit" value="<?php echo ""."".number_format($output_kredit,2,",",".");?>">
+                    Saldo :
+                    <input type="text" name="debit" value="<?php echo ""."".number_format($saldo,2,",",".");?>">
                 </div>
 
                 
