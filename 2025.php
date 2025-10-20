@@ -7,6 +7,11 @@ if(!isset($_SESSION["username"])){
 include ("hitung.php");
 include ("koneksi.php");
 include ("2025hitung.php");
+include ("januari/2025hitungjanuari.php");
+include ("februari/2025hitungfebruari.php");
+include ("maret/2025hitungmaret.php");
+include ("april/2025hitungapril.php");
+include ("mei/2025hitungmei.php");
 include ("juni/2025hitungjuni.php");
 include ("juli/2025hitungjuli.php");
 include ("agustus/2025hitungagustus.php");
@@ -276,16 +281,16 @@ include ("Oktober/2025hitungoktober.php");
             </div>
             <div class="main">
                 <div class="main1">
-                    <a href="januari.php" id="p02">JANUARI </a> <br>
-                    <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_januari,2,",",".");?>"> <br>                        
-                    <a href="januari.php" id="p02">FEBRUARI </a> <br>
-                    <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_februari,2,",",".");?>"> <br>
-                    <a href="januari.php" id="p02">MARET </a> <br>
-                    <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_maret,2,",",".");?>"> <br>                           
-                    <a href="2025april.php" id="p02">APRIL </a> <br>
-                    <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_april,2,",",".");?>"> <br>
-                    <a href="2025mei.php" id="p02">MEI </a> <br>
-                    <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_mei,2,",",".");?>"> <br>
+                    <a href="januari/2025januari.php" id="p02">JANUARI </a> <br>
+                    <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_januari,2,",",".");?>"> <br>                        
+                    <a href="februari/2025februari.php" id="p02">FEBRUARI </a> <br>
+                    <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_februari,2,",",".");?>"> <br>
+                    <a href="maret/2025maret.php" id="p02">MARET </a> <br>
+                    <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_maret,2,",",".");?>"> <br>                           
+                    <a href="april/2025april.php" id="p02">APRIL </a> <br>
+                    <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_april,2,",",".");?>"> <br>
+                    <a href="mei/2025mei.php" id="p02">MEI </a> <br>
+                    <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_mei,2,",",".");?>"> <br>
                     <a href="juni/2025juni.php" id="p02">JUNI </a> <br>
                     <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_juni,2,",",".");?>"><br>
                 </div>
