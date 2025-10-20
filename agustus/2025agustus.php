@@ -6,7 +6,7 @@ if(!isset($_SESSION["username"])){
 }
     include ("../koneksi.php");
     //include ("../hitung.php");
-	include ("2025hitungoktober.php");
+	include ("2025hitungagustus.php");
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ if(!isset($_SESSION["username"])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2025 Oktober</title>
+    <title>2025 agustus</title>
     <link rel="stylesheet" href="../tylemaster.css">
     <style>
         table{
@@ -164,7 +164,7 @@ if(!isset($_SESSION["username"])){
     <div class="container">
         <div class="judul">
                 <div class="judul1">ver_25_05</div>
-                <div class="judul2"><h2>OKTOBER 2025</h2></div>
+                <div class="judul2"><h2>AGUSTUS 2025</h2></div>
                 <div class="judul3"></div>           
         </div>
 
@@ -173,8 +173,8 @@ if(!isset($_SESSION["username"])){
             <div class="menu" id="hide">
                 <a href="../logout.php">LOGOUT</a>
                 <a href="../2025.php">BACK</a>
-                <a href="2025oktoberdetail.php">DETAIL</a>
-                <a href="2025typeoktober.php">Umum/Pribadi</a>
+                <a href="2025agustusdetail.php">DETAIL</a>
+                <a href="2025typeagustus.php">Umum/Pribadi</a>
             </div>
 
             <div class="sub-menu">
@@ -194,11 +194,11 @@ if(!isset($_SESSION["username"])){
         <div class="utama">
             <div class="side">
                 Total Debit :
-                <input type="text" value="<?php echo ""."".number_format($saldo_debit_oktober,2,",",".");?>"><br>
+                <input type="text" value="<?php echo ""."".number_format($saldo_debit_agustus,2,",",".");?>"><br>
                 Total Kredit :
-                <input type="text" value="<?php echo ""."".number_format($saldo_kredit_oktober,2,",",".");?>"><br>
+                <input type="text" value="<?php echo ""."".number_format($saldo_kredit_agustus,2,",",".");?>"><br>
                 Total Saldo :
-                <input type="text" value="<?php echo ""."".number_format($saldo_total_oktober,2,",",".");?>">
+                <input type="text" value="<?php echo ""."".number_format($saldo_total_agustus,2,",",".");?>">
             </div>
             <div class="main">
                 <table>
@@ -220,7 +220,7 @@ if(!isset($_SESSION["username"])){
                     <!-- </form> -->
                         <?php
                             $no=1;
-                            $sql="select * from tabel_transaksi where bulan='10' order by no DESC";
+                            $sql="select * from tabel_transaksi where bulan='08' order by no DESC";
                             $query=mysqli_query($koneksi,$sql);
                             while($trans=mysqli_fetch_array($query)){
                                 echo"
