@@ -5,7 +5,7 @@ if(!isset($_SESSION["username"])){
   exit;
 }
     include ("../koneksi.php");
-    include ("../hitung.php");
+    //include ("../hitung.php");
 	include ("2025hitungoktober.php");
 ?>
 
