@@ -275,7 +275,8 @@ include ("desember/2025hitungdesember.php");
                     <input type="text" value="<?php echo ""."".number_format($saldo_rumah,2,",",".");?>"></td> <br>
                     Makan : <br>
                     <input type="text" value="<?php echo ""."".number_format($saldo_makan,2,",",".");?>"></td> <br>
-                    Kesehatan : <br>
+                    <!--Kesehatan : <br> -->
+                    <a href="infokesehatan.php" id="p02">Kesehatan </a> <br>
                     <input type="text" value="<?php echo ""."".number_format($saldo_kesehatan,2,",",".");?>"></td> <br>
                     Lain-lain : <br>
                     <input type="text" value="<?php echo ""."".number_format($saldo_lain,2,",",".");?>"></td> <br>

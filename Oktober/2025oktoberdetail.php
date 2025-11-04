@@ -207,11 +207,11 @@
                 <div class="side1">
                     <form action="" method="post">      
                         Jenis : <br>
-                        <!-- <input type="text" name="jenis" value=""> <br>  -->
+                        <!-- <input type="text" name="jenis" value=""> <br>  --> 
                         <select type="text" name="jenis">
                             <!-- <option>Tanggal</option> -->
                             <option>Bulan</option>
-                            <!--<option>Transaki</option> -->
+                            <option>Transaksi</option> -->
                             <option>Type</option>
                             <option>Bank</option>
                             <option>Bagian</option>
@@ -267,7 +267,7 @@
                         <?php
                             // include ("../koneksi.php");
                             if(isset($_POST['proses'])){
-                            $sql="select * from tabel_transaksi where bulan='10' and $_POST[jenis] = '$_POST[cari]' order by no DESC";
+                            $sql="SELECT * from tabel_transaksi where bulan='10' and $_POST[jenis] = '$_POST[cari]' order by no DESC";
                             $query=mysqli_query($koneksi,$sql);
                             while($trans=mysqli_fetch_array($query)){
                             echo"
