@@ -102,7 +102,10 @@ $data=mysqli_fetch_array($sql);
                 <option>BSI</option>
                 <option>Niaga</option>
                 <option>BNI</option>
+<<<<<<< HEAD
                 <option>MANDIRI</option>
+=======
+>>>>>>> f7f64dc15ed43d05079503e8ac9875376b513dfb
             </select>
             </td>
         </tr>
