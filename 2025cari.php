@@ -149,6 +149,7 @@ include ("koneksi.php");
                         <th>Bank</th>
                         <th>Bagian</th>
                         <th>Post</th>
+                        <th>Transaksi</th>
                         <th colspan="2">Aksi </th>
                     </tr>
                 

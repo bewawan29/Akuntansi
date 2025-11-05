@@ -122,7 +122,7 @@ include ("koneksi.php");
                     <?php
                     include ("koneksi.php");
                         if(isset($_POST['proses'])){
-                        $sql="select * from tabel_memo where memo LIKE '%$_POST[input]%' ";
+                        $sql="select * from tabel_memo where memo LIKE '%$_POST[input]%' order by tanggal DESC ";
                         $query=mysqli_query($koneksi,$sql);
 
                         while($trans=mysqli_fetch_array($query)){
