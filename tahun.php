@@ -8,13 +8,15 @@ include("2025hitung.php");
 include ("koneksi.php");
 
 ?>
-<link rel="stylesheet" href="tylemaster.css">
+<link rel="stylesheet" href="stylemaster.css">
+<link rel="stylesheet" href="styletahun.css">
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!--
     <style>
         * {
             margin: 0px;
@@ -181,7 +183,7 @@ include ("koneksi.php");
             }
         }    
         
-    </style>
+    </style> -->
 </head>
 <body>
     
