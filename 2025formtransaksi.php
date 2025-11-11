@@ -14,8 +14,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="tylemaster.css">
-    <style>   
+    <link rel="stylesheet" href="stylemaster.css">
+    <link rel="stylesheet" href="style2025formtransaksi.css">
+    <!--<style>   
         table{
             border-collapse:collapse;
             border:2px solid green;
@@ -202,7 +203,7 @@
                 background-color: brown;
             }
         }
-    </style>
+    </style> -->
 </head>
 <body>
     
