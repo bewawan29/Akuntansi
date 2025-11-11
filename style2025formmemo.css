@@ -1,0 +1,180 @@
+table{
+            border-collapse:collapse;
+            border:2px solid green;
+            
+        }
+        th{
+            background-color:steelblue;
+            color:black;
+            height:30px;
+            border:1px solid green;
+        }
+        td{
+            border:1px solid green;
+        }
+        button{
+            width: 100px;
+            height: 30px;
+            color:red;
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            text-decoration: none;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(245, 195, 155);
+        }
+
+        /* judul */
+        .container .judul {
+            background-color: aqua;
+            display: grid;
+            grid-template-columns: 0.5fr 1fr 0.5fr;
+            /* width: 100vw; */
+        }
+        .container .judul .judul1 {
+            font-size: 0.6rem;
+        }
+        .container .judul .judul2 {
+            text-align: center;
+        }
+
+        /* navigasi */
+        .container nav {
+            background-color: rgb(0, 0, 0);
+            display: grid;
+            grid-template-columns: 1fr 0.8fr;
+        }
+        .container nav .menu,
+        .container nav .sub-menu {
+            /* background-color: blue; */
+            padding: 10px;
+            /* border: 2px solid green; */
+        }
+        /* .container nav .sub-menu{
+            display: grid;
+            grid-template-columns: 0.5fr 0.5fr 2fr;
+        } */
+       
+        .container .menu-hide {
+            color: white;
+            position: relative;
+            padding: 10px;
+            display: none;
+            top: 0px;
+        }
+        .container nav .menu a {
+            color: white;
+            margin: 15px;
+        }
+        .container nav .sub-menu {
+            /* background-color: yellow; */
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 0.5fr 0.8fr;
+            text-align: center;
+        }
+
+        /* utama */
+        .container .utama {
+            display: grid;
+            grid-template-columns: 1fr 4fr;
+            height: 89vh;
+        }
+        .container .utama .side{
+            background-color: rgb(181, 171, 216);
+            /* list-style: none; */
+            /* justify-items: center; */
+            font-size: 0.9rem;
+            line-height: 1.8rem;
+            /* text-align: center; */
+        }
+        .container .utama .side textarea{
+            width: 250px;
+            height: 300px;
+        }
+        .container .utama .main{
+            background-color: rgb(124, 175, 137);
+            font-size: 0.9rem;
+            overflow: scroll;
+        }
+        
+
+        /* responsive */
+        @media only screen and (max-width: 450px){
+            /* judul */
+            .container .judul {
+                background-color: blue;
+                color: white;
+                font-size: 0.8rem;
+                padding: 5px;
+            }
+
+            /* navigasi */
+            .container nav {
+                font-size: 0.6rem;
+                grid-template-columns: 0.2fr 1fr;
+            }
+            .container nav .menu {
+                position: absolute;
+                top: 66px;
+                background-color: brown;
+                left: -370px;
+                /* display: none; */
+                transition: 0.5s;
+            }
+            .container nav .menu-hide {
+                display: block;
+                position: relative;
+                z-index: 5;
+            }
+            .container nav .menu-hide:hover .container nav .menu {
+                display: block;
+                background-color: brown;
+            }
+
+            /* utama */
+            .container .utama{
+                grid-template-columns: 1fr;
+            }
+            .container .utama .side textarea{
+                width: 300px;
+                height: 200px;
+            }
+        }
+
+        @media only screen and (min-width: 460px) and (max-width:800px){
+            .container .judul {
+                background-color: salmon;
+                color: white;
+                font-size: 0.7rem;
+                padding: 5px;
+            }
+            /* navigasi */
+            .container nav {
+                font-size: 0.6rem;
+                grid-template-columns: 0.2fr 1fr;
+            }
+            .container nav .menu {
+                position: absolute;
+                top: 66px;
+                background-color: brown;
+                left: -370px;
+                /* display: none; */
+                transition: 0.5s;
+            }
+            .container nav .menu-hide {
+                display: block;
+                position: relative;
+                z-index: 5;
+            }
+            .container nav .menu-hide:hover .container nav .menu {
+                display: block;
+                background-color: brown;
+            }
+        }
