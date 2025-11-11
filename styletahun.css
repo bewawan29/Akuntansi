@@ -1,0 +1,103 @@
+        /* utama */
+        .container .utama {
+            display: grid;
+            grid-template-columns: 1fr 4fr;
+            height: 89vh;
+        }
+        .container .utama .side{
+            background-color: rgb(181, 171, 216);
+            list-style: none;
+            font-size: 1.3rem;
+            line-height: 4rem;
+            text-align: center;
+        }
+       .container .utama .main{
+            background-color: rgb(124, 175, 137);
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            overflow: scroll;
+            justify-items: center;
+            line-height: 2rem;
+       }
+
+       /* responsive */
+        @media only screen and (max-width: 450px) {
+            .container .judul {
+                background-color: blue;
+                color: white;
+                font-size: 0.8rem;
+                padding: 5px;
+            }
+
+            /* navigasi */
+            .container nav {
+                font-size: 0.6rem;
+                grid-template-columns: 0.2fr 1fr;
+            }
+            .container nav .menu {
+                position: absolute;
+                top: 66px;
+                background-color: brown;
+                left: -190px;
+                /* display: none; */
+                transition: 0.5s;
+            }
+            .container nav .menu-hide {
+                display: block;
+                position: relative;
+                z-index: 5;
+            }
+            .container nav .menu-hide:hover .container nav .menu {
+                display: block;
+                background-color: brown;
+            }
+
+            /* utama */
+            .container .utama .side{
+                text-align:  center;
+            }
+            .container .utama .main {
+                grid-template-columns: 1fr;
+            }
+            .container .utama .main .main1{
+                border: 1px solid blue;
+            }
+            .container .utama .main .main2{
+                border: 1px solid blue;
+            }
+            .container .utama .main .main3{
+                border: 1px solid blue;
+            }
+        }
+        /* HP landscape */
+        @media only screen and (min-width: 460px) and (max-width:800px){
+            .container .judul {
+                background-color: salmon;
+                color: white;
+                font-size: 0.7rem;
+                padding: 5px;
+            }
+            
+            /* navigasi */
+            .container nav {
+                font-size: 0.6rem;
+                grid-template-columns: 0.2fr 1fr;
+            }
+            .container nav .menu {
+                position: absolute;
+                top: 66px;
+                background-color: brown;
+                left: -190px;
+                /* display: none; */
+                transition: 0.5s;
+            }
+            .container nav .menu-hide {
+                display: block;
+                position: relative;
+                z-index: 5;
+            }
+            .container nav .menu-hide:hover .container nav .menu {
+                display: block;
+                background-color: brown;
+            }
+        }
