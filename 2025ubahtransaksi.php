@@ -20,7 +20,7 @@ $data=mysqli_fetch_array($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <tittle> </tittle>
     </head>
-    <style>
+    <!--<style>
         button{
             width: 100px;
             height: 30px;
@@ -34,7 +34,7 @@ $data=mysqli_fetch_array($sql);
           }
           
         }
-    </style>
+    </style> -->
 <body>
     <div class="container">
         <!-- judul -->
@@ -42,10 +42,9 @@ $data=mysqli_fetch_array($sql);
           <div class="judul1">ver_25_05</div>
           <div class="judul2"><h2>UBAH DATA TRANSAKSI</h2></div>
           <div class="judul3"></div>
-        </div>        
-    </div>
-
-    <!-- navigasi -->
+        </div>     
+        
+        <!-- navigasi -->
          <nav>
             <div class="menu-hide" onclick="muncul()">MENU</div>
             <div class="menu" id="hide">
@@ -68,7 +67,7 @@ $data=mysqli_fetch_array($sql);
                 }
             </script>
         </nav>
-    
+    </div>
 
     
     <form action="" method="post">
