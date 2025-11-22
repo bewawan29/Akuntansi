@@ -7,7 +7,7 @@ include ("function.php");
 }
 
 ?>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="stylemaster.css">
 
 <?php
 include "koneksi.php";
@@ -48,7 +48,7 @@ $data=mysqli_fetch_array($sql);
         <!-- judul -->
         <div class="judul">
           <div class="judul1">ver_25_05</div>
-          <div class="judul2"><h2>UBAH DATA TRANSAKSI</h2></div>
+          <div class="judul2"><h2>UBAH DATA MEMO</h2></div>
           <div class="judul3"></div>
         </div>
 
