@@ -6,7 +6,7 @@ if(!isset($_SESSION["username"])){
 }
 
 ?>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="stylemaster.css">
 <?php
 include "koneksi.php";
 $sql=mysqli_query($koneksi, "select * from tabel_transaksi where no='$_GET[kode]'");
@@ -42,12 +42,32 @@ $data=mysqli_fetch_array($sql);
           <div class="judul1">ver_25_05</div>
           <div class="judul2"><h2>UBAH DATA TRANSAKSI</h2></div>
           <div class="judul3"></div>
-        </div>
-
-        
-
-        
+        </div>        
     </div>
+
+    <!-- navigasi -->
+         <nav>
+            <div class="menu-hide" onclick="muncul()">MENU</div>
+            <div class="menu" id="hide">
+                <!-- <a href="logout.php">LOGOUT</a> -->
+                <!-- <a href="2025.php">MENU</a> -->
+                <a href="2025formtransaksi.php">BACK</a>
+                <!-- <a href="2025gabung.php">GABUNG</a> -->
+                <!-- <a href="2025carimemo.php">CARI</a> -->
+            </div>
+            <div class="sub-menu">
+                <?php echo date("l, d-M-Y"); ?>
+                <div id="clock"></div>
+                <div id="teksa"></div>
+            </div>
+            <script src="waktu.js"></script>
+            <script src="mundur.js"></script>
+            <script>
+                function muncul() {
+                    document.getElementById("hide").style.display = "block";
+                }
+            </script>
+        </nav>
     
 
     
