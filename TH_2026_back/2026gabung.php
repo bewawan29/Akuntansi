@@ -5,7 +5,7 @@
 	exit;
 	}
 	include ("koneksi2026.php");
-	include ("hitung2026.php");
+	include ("hitung.php");
     include ("function2026.php");
 ?>
 
@@ -15,7 +15,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../stylemaster.css">
+    <link rel="stylesheet" href="tylemaster.css">
     <style>
         table{
             border-collapse:collapse;
@@ -216,8 +216,8 @@
                 <div id="clock"></div>
                 <div id="count" style="color: red;"></div>
             </div>
-            <script src="../waktu.js"></script>
-            <script src="../mundur.js"></script>
+            <script src="waktu.js"></script>
+            <script src="mundur.js"></script>
             <script>
                 function muncul(){
                     // document.getElementById("hide").style.display = "block";

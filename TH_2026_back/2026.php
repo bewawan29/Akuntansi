@@ -4,10 +4,10 @@ if(!isset($_SESSION["username"])){
   header("Location : index.php");
   exit;
 }
-include ("hitung2026.php");
+//include ("hitung.php");
 include ("koneksi2026.php");
-include ("2026hitung.php");
-include ("januari/2026hitungjanuari.php");
+//include ("2025hitung.php");
+//include ("januari/2025hitungjanuari.php");
 //include ("februari/2025hitungfebruari.php");
 //include ("maret/2025hitungmaret.php");
 //include ("april/2025hitungapril.php");
@@ -285,7 +285,7 @@ include ("januari/2026hitungjanuari.php");
             </div>
             <div class="main">
                 <div class="main1">
-                    <a href="januari/2026januari.php" id="p02">JANUARI </a> <br>
+                    <a href="januari/2025januari.php" id="p02">JANUARI </a> <br>
                     <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_januari,2,",",".");?>"> <br>                        
                     <a href="februari/2025februari.php" id="p02">FEBRUARI </a> <br>
                     <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_februari,2,",",".");?>"> <br>

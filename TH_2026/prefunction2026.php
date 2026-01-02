@@ -11,7 +11,8 @@
 
     function tabel_transaksi(){
         
-        include("koneksi2026.php");
+       include("koneksi2026.php");
+        //global $koneksi
         $sql="select * from tabel_transaksi order by no DESC";
         $query=mysqli_query($koneksi,$sql);
         
@@ -33,7 +34,7 @@
             <td><a href='2026ubahtransaksi.php?kode=$trans[no]'> Ubah </a> </td> 
             </tr>";
         }
-        hapus_transaksi();
+        //hapus_transaksi();
         
     echo "Total Data :";
     echo mysqli_num_rows($query);
@@ -43,14 +44,13 @@
 <!-- hapus transaksi -->
 <?php
     function hapus_transaksi(){
-        //global $koneksi;
-        include("koneksi2026.php");
+        global $koneksi;
         if (isset($_GET['kode'])){
             mysqli_query($koneksi, "delete from tabel_transaksi where no ='$_GET[kode]' ");
             
             echo "Data terhapus";
             echo "<meta http-equiv=refresh content=0;URL='2026formtransaksi.php'>";
-            // header ("location:2025formtransaksi.php");
+            // header ("location:2026formtransaksi.php");
         }
     }
 ?>
@@ -58,8 +58,7 @@
 <!-- simpan transaksi -->
 <?php
     function simpan_transaksi(){
-        //global $koneksi;
-        include("koneksi2026.php");
+        global $koneksi;
         if(isset($_POST['proses'])){
             mysqli_query($koneksi,"insert into tabel_transaksi set
             no = '$_POST[no]',
@@ -74,8 +73,8 @@
             post = '$_POST[post]'");
             
             echo "Data telah tersimpan";
-            echo "<meta http-enquiv=refresh content=0;URL:'2026formtransaksi.php'>";
-            //header ("location:2025formtransaksi.php");
+            echo "<meta http-enquiv=refresh content=2;URL:'2026formtransaksi.php'>";
+            // header ("location:2026formtransaksi.php");
         }
     }
 ?>	
@@ -84,8 +83,7 @@
  <?php
     
    function tabel_memo(){
-    //global $koneksi;
-    include("koneksi2026.php");
+    global $koneksi;
         $sql="select * from tabel_memo order by tanggal DESC";
         $query=mysqli_query($koneksi,$sql);
 
@@ -116,8 +114,7 @@
 <!-- simpan memo -->
 <?php
     function simpan_memo(){
-        //global $koneksi;
-        include("koneksi2026.php");
+        global $koneksi;
         if(isset($_POST['proses'])){
             mysqli_query($koneksi,"insert into tabel_memo set
             tanggal = '$_POST[tanggal]',
@@ -125,8 +122,8 @@
             memo = '$_POST[memo]'");
             
             echo "Data telah tersimpan";
-            echo "<meta http-enquiv=refresh content:2;URL='2026formmemo.php'>";
-            // header ("location:2026formmemo.php");
+            echo "<meta http-enquiv=refresh content:2;URL='2025formmemo.php'>";
+            // header ("location:2025formmemo.php");
         }
     }
 ?>
@@ -134,8 +131,7 @@
 <!-- tabel transaksi gabung -->
  <?php
     function tabel_transaksi_gabung(){
-        //global $koneksi;
-        include("koneksi2026.php");
+        global $koneksi;
         if(isset($_POST['proses2'])){
             $sql1="select * from tabel_transaksi where tanggal = '$_POST[input]' order by no DESC";
             $query1=mysqli_query($koneksi,$sql1);
@@ -154,7 +150,7 @@
                     <td>$trans1[bagian]</td>
                     <td>$trans1[post]</td>
                     <td><a href='?kode=$trans1[no]'> Hapus </a> </td>
-                    <td><a href='2026ubahtransaksi.php?kode=$trans1[no]'> Ubah </a> </td> 
+                    <td><a href='2025ubahtransaksi.php?kode=$trans1[no]'> Ubah </a> </td> 
                     </tr>";
                     }
         }

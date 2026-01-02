@@ -5,7 +5,7 @@ if(!isset($_SESSION["username"])){
   exit;
 }
 include ("koneksi2026.php");
-include ("function2026.php");
+include ("../function.php");
 ?>
 
 <!DOCTYPE html>

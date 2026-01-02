@@ -15,7 +15,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../stylemaster.css">
-    <style>   
+    <link rel="stylesheet" href="../style2025formtransaksi.css">
+    <!--<style>   
         table{
             border-collapse:collapse;
             border:2px solid green;
@@ -202,7 +203,7 @@
                 background-color: brown;
             }
         }
-    </style>
+    </style> -->
 </head>
 <body>
     
@@ -219,7 +220,7 @@
                 <a href="2026.php">MENU</a>
                 <a href="2026formmemo.php">MEMO</a>
                 <a href="2026gabung.php">GABUNG</a>
-                <a href="2025cari.php">CARI</a>
+                <a href="2026cari.php">CARI</a>
             </div>
             <div class="sub-menu">
                 <?php echo date("l, d-M-Y"); ?>
@@ -372,8 +373,8 @@
     header("Location : index.php");
     exit;
     }
-    include ("koneksi2026.php");
-    include ("function2026.php");
+    include ("koneksi.php");
+    include ("function.php");
 ?>
 
 <!DOCTYPE html>
