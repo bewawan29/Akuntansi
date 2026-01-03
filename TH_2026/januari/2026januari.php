@@ -171,7 +171,7 @@ if(!isset($_SESSION["username"])){
         <nav>
             <div class="menu-hide" onclick="muncul()">MENU</div>
             <div class="menu" id="hide">
-                <a href="../THlogout.php">LOGOUT</a>
+                <a href="../TH_2026/logout.php">LOGOUT</a>
                 <a href="../2026.php">BACK</a>
                 <a href="2026januaridetail.php">DETAIL</a>
                 <a href="2026typejanuari.php">Umum/Pribadi</a>
