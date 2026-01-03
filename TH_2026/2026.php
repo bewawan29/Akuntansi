@@ -268,7 +268,7 @@ include ("januari/2026hitungjanuari.php");
                 <div class="side1">
                     <a href="2026formmemo.php">FORM MEMO</a><br>
                     <a href="2026formtransaksi.php">FORM TRANSAKSI</a><br>
-                    <a href="2025gabung.php">TABEL GABUNG</a>
+                    <a href="2026gabung.php">TABEL GABUNG</a>
                 </div>
                 <hr>
                 <div class="side2">

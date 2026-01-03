@@ -8,9 +8,11 @@ if(!isset($_SESSION["username"])){
 }
 
 ?>
-<link rel="stylesheet" href="stylemaster.css">
-<link rel="stylesheet" href="style2025ubahtransaksi.css">
+<link rel="stylesheet" href="../stylemaster.css">
+<link rel="stylesheet" href="../style2026ubahtransaksi.css">
+
 <?php
+ob_start();
 include "koneksi2026.php";
 $sql=mysqli_query($koneksi, "select * from tabel_transaksi where no='$_GET[kode]'");
 $data=mysqli_fetch_array($sql);
@@ -62,7 +64,7 @@ $data=mysqli_fetch_array($sql);
                 <div id="clock"></div>
                 <div id="teksa"></div>
             </div>
-            <script src="waktu.js"></script>
+            <script src="../waktu.js"></script>
             <script src="mundur.js"></script>
             <script>
                 function muncul() {
@@ -202,6 +204,6 @@ if(isset($_POST['proses'])){
 	
 	echo "Data telah tersimpan";
     echo "<meta http-enquiv=refresh content=2;URL='2026formtransaksi.php'>";
-	//header ("location:2026formtransaksi.php");
+	header ("location:2026formtransaksi.php");
 }
 ?>
