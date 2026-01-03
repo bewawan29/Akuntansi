@@ -4,9 +4,9 @@
       header("Location : ../index.php");
       exit;
     }
-    include ("../koneksi.php");
+    include ("../koneksi2026.php");
     //include ("../hitung.php");
-    include ("2025hitungjanuari.php");
+    include ("2026hitungjanuari.php");
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +15,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../tylemaster.css">
+    <link rel="stylesheet" href="../stylemaster.css">
     <style>
         table{
             border-collapse:collapse;
@@ -177,24 +177,24 @@
     <div class="container">
         <div class="judul">
                 <div class="judul1">ver_25_05</div>
-                <div class="judul2"><h2>DETAIL JANUARI 2025</h2></div>
+                <div class="judul2"><h2>DETAIL JANUARI 2026</h2></div>
                 <div class="judul3"></div>           
         </div>
 
         <nav>
             <div class="menu-hide" onclick="muncul()">MENU</div>
             <div class="menu" id="hide">
-                <a href="logout.php">LOGOUT</a>
-                <a href="../2025.php">MENU</a>
-                <a href="2025januari.php">BACK</a>
+                <a href="../TH_2026/logout.php">LOGOUT</a>
+                <a href="../2026.php">MENU</a>
+                <a href="2026januari.php">BACK</a>
             </div>
             <div class="sub-menu">
                 <?php echo date("l, d-M-Y"); ?>
                 <div id="clock"></div>
                 <div id="count"></div>
             </div>
-            <script src="../waktu.js"></script>
-            <script src="../mundur.js"></script>
+            <script src="../TH_2026/waktu.js"></script>
+            <script src="../TH_2026/mundur.js"></script>
             <script>
                 function muncul() {
                     document.getElementById("hide").style.display = "block";

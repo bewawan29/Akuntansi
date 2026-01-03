@@ -5,7 +5,7 @@ if(!isset($_SESSION["username"])){
   exit;
 }
     include ("../koneksi2026.php");
-    //include ("../hitung.php");
+    //include ("../hitung2026.php");
 	include ("2026hitungjanuari.php");
 ?>
 
@@ -14,7 +14,7 @@ if(!isset($_SESSION["username"])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2025 januari</title>
+    <title>2026 januari</title>
     <link rel="stylesheet" href="../stylemaster.css">
     <style>
         table{
@@ -171,7 +171,7 @@ if(!isset($_SESSION["username"])){
         <nav>
             <div class="menu-hide" onclick="muncul()">MENU</div>
             <div class="menu" id="hide">
-                <a href="../logout.php">LOGOUT</a>
+                <a href="../THlogout.php">LOGOUT</a>
                 <a href="../2026.php">BACK</a>
                 <a href="2026januaridetail.php">DETAIL</a>
                 <a href="2026typejanuari.php">Umum/Pribadi</a>
@@ -182,8 +182,8 @@ if(!isset($_SESSION["username"])){
                 <div id="clock"></div>
                 <div id="count"></div>
             </div>
-            <script src="../waktu.js"></script>
-            <script src="../mundur.js"></script>
+            <script src="../TH_2026/waktu.js"></script>
+            <script src="../TH_2026/mundur.js"></script>
             <script>
                 function muncul() {
                     document.getElementById("hide").style.display = "block";
