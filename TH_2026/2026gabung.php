@@ -286,7 +286,7 @@
                                     <td>$trans[hari]</td>
                                     <td>$trans[memo]</td>                   
                                     <td><a href='?kode=$trans[tanggal]'> Hapus </a> </td>
-                                    <td><a href='2025ubahmemo.php?kode=$trans[tanggal]'> Ubah </a> </td> 
+                                    <td><a href='2026ubahmemo.php?kode=$trans[tanggal]'> Ubah </a> </td> 
                                 </tr>";
                                 }
                                 }
