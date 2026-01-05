@@ -242,7 +242,7 @@ include ("januari/2026hitungjanuari.php");
 
                 <a href="../logout.php">LOGOUT</a>
                 <a href="../tahun.php">TAHUN</a>
-                <a href="2025type.php">Umum/Pribadi</a>
+                <a href="2026type.php">Umum/Pribadi</a>
                 <button onclick="window.print()">Print</button>
             </div>
 
