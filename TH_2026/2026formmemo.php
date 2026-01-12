@@ -215,7 +215,7 @@ include ("function2026.php");
                 <a href="2026.php">MENU</a>
                 <a href="2026formtransaksi.php">TRANSAKSI</a>
                 <a href="2026gabung.php">GABUNG</a>
-                <a href="2025carimemo.php">CARI</a>
+                <a href="2026carimemo.php">CARI</a>
             </div>
             <div class="sub-menu">
                 <?php echo date("l, d-M-Y"); ?>

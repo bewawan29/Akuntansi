@@ -249,7 +249,74 @@ include ("koneksi2026.php")
     }
  ?>
 
- 
+ <!-- cash pribadi-->
+<?php
+	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where type = 'cash'AND bagian = 'pribadi'";
+    $query_result=mysqli_query($koneksi, $query);
+    while($row=mysqli_fetch_assoc($query_result)){
+    	$output_debit_cash_pribadi=$row['sum'];
+    }
+ ?>
+<?php
+	$query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where type = 'cash' AND bagian = 'pribadi'";
+    $query_result=mysqli_query($koneksi, $query);
+    while($row=mysqli_fetch_assoc($query_result)){
+    	$output_kredit_cash_pribadi=$row['sum'];
+    }
+ ?>
+
+<!-- cash umum-->
+<?php
+	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where type = 'cash'AND bagian = 'umum'";
+    $query_result=mysqli_query($koneksi, $query);
+    while($row=mysqli_fetch_assoc($query_result)){
+    	$output_debit_cash_umum=$row['sum'];
+    }
+ ?>
+<?php
+	$query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where type = 'cash' AND bagian = 'umum'";
+    $query_result=mysqli_query($koneksi, $query);
+    while($row=mysqli_fetch_assoc($query_result)){
+    	$output_kredit_cash_umum=$row['sum'];
+    }
+ ?>
+
+<!-- pendapatan pribadi-->
+ <?php
+	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where bagian = 'pribadi'";
+    $query_result=mysqli_query($koneksi, $query);
+    while($row=mysqli_fetch_assoc($query_result)){
+    	$masuk_debit_pribadi=$row['sum'];
+    }
+ ?>
+
+<!-- pendapatan umum-->
+ <?php
+	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where bagian = 'umum'";
+    $query_result=mysqli_query($koneksi, $query);
+    while($row=mysqli_fetch_assoc($query_result)){
+    	$masuk_debit_umum=$row['sum'];
+    }
+ ?>
+
+<!-- pengeluaran pribadi-->
+ <?php
+	$query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where bagian = 'pribadi'";
+    $query_result=mysqli_query($koneksi, $query);
+    while($row=mysqli_fetch_assoc($query_result)){
+    	$output_kredit_pribadi=$row['sum'];
+    }
+ ?>
+
+<!-- pengeluaran umum-->
+ <?php
+	$query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where bagian = 'umum'";
+    $query_result=mysqli_query($koneksi, $query);
+    while($row=mysqli_fetch_assoc($query_result)){
+    	$output_kredit_umum=$row['sum'];
+    }
+ ?>
+
 <!-- total -->
 <?php
     
@@ -264,6 +331,11 @@ include ("koneksi2026.php")
 	$saldo_bri = $output_debit_bri - $output_kredit_bri;
 	$saldo_niaga = $output_debit_niaga - $output_kredit_niaga;
 	$saldo_cash = $output_debit_cash - $output_kredit_cash;
+    $saldo_cash_pribadi = $output_debit_cash_pribadi - $output_kredit_cash_pribadi;
+    $saldo_cash_umum = $output_debit_cash_umum - $output_kredit_cash_umum;
+
+    $saldo_umum = $masuk_debit_umum - $output_kredit_umum;
+    $saldo_pribadi = $masuk_debit_pribadi - $output_kredit_pribadi;
 
 	
 ?>

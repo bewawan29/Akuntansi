@@ -281,13 +281,20 @@ include ("januari/2026hitungjanuari.php");
                     <input type="text" value="<?php echo ""."".number_format($saldo_kesehatan,2,",",".");?>"></td> <br>
                     Lain-lain : <br>
                     <input type="text" value="<?php echo ""."".number_format($saldo_lain,2,",",".");?>"></td> <br>
+                    <br>
+                    <br>
+                    Umum : <br>
+                    <input type="text" value="<?php echo ""."".number_format($saldo_umum,2,",",".");?>"></td> <br>
+                    <br>
+                    Pribadi : <br>
+                    <input type="text" value="<?php echo ""."".number_format($saldo_pribadi,2,",",".");?>"></td> <br>
                 </div>
             </div>
             <div class="main">
                 <div class="main1">
                     <a href="januari/2026januari.php" id="p02">JANUARI </a> <br>
                     <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_januari,2,",",".");?>"> <br>                        
-                    <a href="februari/2025februari.php" id="p02">FEBRUARI </a> <br>
+                    <a href="februari/2026februari.php" id="p02">FEBRUARI </a> <br>
                     <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_februari,2,",",".");?>"> <br>
                     <a href="maret/2025maret.php" id="p02">MARET </a> <br>
                     <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_maret,2,",",".");?>"> <br>                           
