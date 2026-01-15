@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(!isset($_SESSION["username"])){
-    header("Location : index.php");
+    header("Location : ../index.php");
     exit;
     }
     include ("koneksi2026.php");
@@ -219,7 +219,7 @@
                 <a href="2026.php">MENU</a>
                 <a href="2026formmemo.php">MEMO</a>
                 <a href="2026gabung.php">GABUNG</a>
-                <a href="2025cari.php">CARI</a>
+                <a href="2026cari.php">CARI</a>
             </div>
             <div class="sub-menu">
                 <?php echo date("l, d-M-Y"); ?>
@@ -227,7 +227,7 @@
                 <div id="count"></div>
             </div>
             <script src="../waktu.js"></script>
-            <script src="../mundur.js"></script>
+            <script src="mundur2026.js"></script>
             <script>
                 function muncul(){
                     // document.getElementById("hide").style.display = "block";

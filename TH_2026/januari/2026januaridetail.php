@@ -1,7 +1,7 @@
 6<?php
     session_start();
     if(!isset($_SESSION["username"])){
-      header("Location : ../index.php");
+      header("Location : ../TH_2026/index.php");
       exit;
     }
     include ("../koneksi2026.php");
@@ -194,7 +194,7 @@
                 <div id="count"></div>
             </div>
             <script src="../TH_2026/waktu.js"></script>
-            <script src="../TH_2026/mundur.js"></script>
+            <script src="../mundur2026.js"></script>
             <script>
                 function muncul() {
                     document.getElementById("hide").style.display = "block";
