@@ -60,8 +60,9 @@ include ("koneksi.php");
             <div class="main">
                 
                 <div class="main1">
-                    <li><a href="tahun.php">TAHUN DATA</a></li>
-                <li><a href="https://www.google.com">GOOGLE</a></li>
+                    <li><a href="tahun.php">Tahun Data</a></li>
+                <!--<li><a href="https://www.google.com" target="_blank">GOOGLE</a></li>-->
+                <li><a href="https://www.google.com">Google</a></li>
                 <li><a href="https://echof17.com">cashflow</a></li>
                 <li><a href="https://192.168.0.90:8006">Proxmox</a></li>
                 <li><a href="http://192.168.0.31">OMV</a></li>
