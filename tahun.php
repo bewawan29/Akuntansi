@@ -200,7 +200,7 @@ include ("koneksi.php");
             <div class="menu-hide" onclick="muncul()">MENU</div>
             <div class="menu" id="hide">
                 <a href="logout.php">LOGOUT</a>
-                <a href="coba.php">COBA</a>
+                <a href="halaman-eko.php">Back</a>
                 <button onclick="window.print()">Print</button>
             </div>
             <div class="sub-menu">

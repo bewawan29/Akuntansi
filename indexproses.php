@@ -21,7 +21,7 @@ if(isset($_POST['proseslog'])){
 		//echo "<meta http-equiv=refres content=0;URL='home.php'>";
 		if($_POST['username'] == "eko"){
 			// header ("location:tahun.php");
-			echo "<meta http-equiv=refresh content=1;URL='tahun.php'>";
+			echo "<meta http-equiv=refresh content=1;URL='halaman-eko.php'>";
 		}else{
 			// header ("location:halaman.php");
 			echo "<meta http-equiv=refresh content=1;URL='halaman.php'>";
