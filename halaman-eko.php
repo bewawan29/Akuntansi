@@ -65,7 +65,7 @@ include ("koneksi.php");
                 <li><a href="https://www.google.com">Google</a></li>
                 <li><a href="https://echof17.com">cashflow</a></li>
                 <li><a href="https://192.168.0.90:8006">Proxmox</a></li>
-                <li><a href="http://192.168.0.31">OMV</a></li>
+                <li><a href="http://192.168.0.62">OMV</a></li>
                 </div>
                 
                 <div class="main2">
@@ -73,6 +73,8 @@ include ("koneksi.php");
                 <li><a href="http://192.168.0.51:8123">Home Asistant</a></li>
                 <li><a href="http://hpanel.hostinger.com">Hostinger</a></li>
                 <li><a href="http://login.tailscale.com">Tailscale</a></li>
+                <li><a href="http://100.90.72.23:8384/">Syncthing</a></li>
+                <li><a href="https://www.w3schools.com">Tutorial coding</a></li>
                 </div>
                 <!--
                 <div class="main3">

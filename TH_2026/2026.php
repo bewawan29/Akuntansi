@@ -8,7 +8,7 @@ include ("hitung2026.php");
 include ("koneksi2026.php");
 include ("2026hitung.php");
 include ("januari/2026hitungjanuari.php");
-//include ("februari/2025hitungfebruari.php");
+include ("februari/2026hitungfebruari.php");
 //include ("maret/2025hitungmaret.php");
 //include ("april/2025hitungapril.php");
 //include ("mei/2025hitungmei.php");
