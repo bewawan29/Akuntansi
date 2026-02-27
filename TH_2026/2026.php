@@ -251,10 +251,10 @@ include ("februari/2026hitungfebruari.php");
                     <?php echo date("l, d-M-Y"); ?>
                 </div>               
                 <div id="clock"></div>
-                <div id="count" style="color: red;"></div>
+                <div id="count"></div>
             </div>
             <script src="../waktu.js"></script>
-            <script src="mundur2026.js"></script>
+            <script src="mundur2026.js?v=<?php echo time(); ?>"></script>
             <script>
                 function muncul(){
                     // document.getElementById("hide").style.display = "block";
@@ -336,5 +336,7 @@ include ("februari/2026hitungfebruari.php");
 
         <!-- <div class="footer">FOOTER</div> -->
     </div>
+
+
 </body>
 </html>

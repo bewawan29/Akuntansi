@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION["username"])){
-  header("Location : ../index.php");
+  header("Location: ../index.php");
   exit;
 }
 include ("koneksi2026.php");
@@ -12,139 +12,78 @@ include ("koneksi2026.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cari Memo</title>
-    <link rel="stylesheet" href="tyleversi.css">
+    <title>Cari Memo - 2 Kolom</title>
     <link rel="stylesheet" href="../stylemaster.css">
-</head>
-<style>
-        table{
-            border-collapse:collapse;
-            border:2px solid green;
-            
-        }
-        th{
-            background-color:steelblue;
-            color:black;
-            height:30px;
-            border:1px solid green;
-        }
-        td{
-            border:1px solid green;
-        }
-        .main{
-            display: grid;
-        }
-        .main2{
-            order: -1;
-        }
-        
-        /* responsive */
-        @media (max-width: 450px){
-            /* judul */
-            .judul{
-                background-color: blue;
-                color: white;
-                font-size:0.7rem;
-            }
-
-            /* utama */
-            .utama{
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 0.5rem;
-            }
-            .side{
-                font-size: 1rem;
-                line-height: 1.5rem;
-            }
-            .main{
-                display: grid;
-                overflow: scroll;
-            }
-            .main2{
-                order: -1;
-                font-size: 0.8rem;
-            }
-        }
-       
+    <style>
+        table { border-collapse: collapse; width: 100%; border: 2px solid green; }
+        th { background-color: steelblue; color: white; padding: 10px; border: 1px solid green; }
+        td { border: 1px solid green; padding: 8px; }
+        .search-box { background: #f4f4f4; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        input[type="text"] { width: 250px; padding: 5px; }
+        .highlight { background-color: yellow; font-weight: bold; }
     </style>
+</head>
 <body>
     <div class="judul">
-            <div class="judul1">ver_25_05</div>
-            <div class="judul2"><h2>PENCARIAN MEMO 2026</h2></div>
-            <div class="judul3"></div>           
+        <h2>PENCARIAN MEMO 2026 (Global Search)</h2>
     </div>
 
     <nav>
-        <div class="menu">
-            <a href="../logout.php">LOGOUT</a>
-            <a href="2026formmemo.php">BACK</a>
-        </div>
-        <div class="sub-menu">
-            <?php echo date("l, d-M-Y"); ?>
-            <div id="clock"></div>
-            <!-- <div id="teksa"></div> -->
-        </div>
-        <script src="../waktu.js"></script>
-        <script src="mundur2026.js"></script>
+        <a href="2026formmemo.php">KEMBALI KE FORM</a>
     </nav>
 
     <div class="utama">
-        <div class="side">
-            <div class="side1">
-                <form action="" method="post">
-                
-                <tr>
-                    <td> Key </td><br>
-                    <td> <input type="text" name="input"> </td> 
-                </tr>
-            </div>
-            <div class="side2">
-                <input type="submit" value="cari" name="proses">
-            </div>
-            
-                <tr>
-                    <td>  </td>
-                </tr>
+        <div class="search-box">
+            <form action="" method="post">
+                <label>Masukkan Kata Kunci (Cari di Memo atau Hari):</label><br><br>
+                <input type="text" name="input" placeholder="Contoh: Senin atau Nama Barang..." value="<?php echo isset($_POST['input']) ? $_POST['input'] : ''; ?>">
+                <input type="submit" value="Cari Sekarang" name="proses">
             </form>
         </div>
+
         <div class="main">
-            <div class="main1">
-                    
-                <table>
+            <table>
+                <thead>
                     <tr>
                         <th>Tanggal</th>
-                        
                         <th>Hari</th>
-                        <th>Memo</th>
+                        <th>Isi Memo</th>
+                        <th colspan="2">Aksi</th>
                     </tr>
-                
-
-                    <?php
-                    include ("koneksi2026.php");
-                        if(isset($_POST['proses'])){
-                        $sql="select * from tabel_memo where memo LIKE '%$_POST[input]%' order by tanggal DESC ";
-                        $query=mysqli_query($koneksi,$sql);
-
-                        while($trans=mysqli_fetch_array($query)){
-                        echo"
-                        <tr>
-                        <td>$trans[tanggal]</td>
-                        <td>$trans[hari]</td>
-                        <td>$trans[memo]</td>
-                        <td><a href='?kode=$trans[tanggal]'> Hapus </a> </td>
-                        <td><a href='2026ubahtransaksi.php?kode=$trans[tanggal]'> Ubah </a> </td> 
-                        </tr>";
-                        }
-                        }
-                    ?>
+                </thead>
+                <tbody>
+                <?php
+                if(isset($_POST['proses'])){
+                    $input = mysqli_real_escape_string($koneksi, $_POST['input']);
                     
-                </table>
-            </div>
-            
-            <div class="main2">
-                
-            </div>
+                    // QUERY 2 KOLOM (memo ATAU hari)
+                    $sql = "SELECT * FROM tabel_memo 
+                            WHERE memo LIKE '%$input%' 
+                            OR hari LIKE '%$input%' 
+                            ORDER BY tanggal DESC";
+                            
+                    $query = mysqli_query($koneksi, $sql);
+                    $jumlah = mysqli_num_rows($query);
+
+                    if($jumlah > 0){
+                        echo "<p>Ditemukan <b>$jumlah</b> data untuk kata kunci: <i>'$input'</i></p>";
+                        while($trans = mysqli_fetch_array($query)){
+                            echo "
+                            <tr>
+                                <td>{$trans['tanggal']}</td>
+                                <td>{$trans['hari']}</td>
+                                <td>{$trans['memo']}</td>
+                                <td><a href='2026formmemo.php?kode={$trans['tanggal']}' onclick='return confirm(\"Hapus?\")'> Hapus </a></td>
+                                <td><a href='2026ubahmemo.php?kode={$trans['tanggal']}'> Ubah </a></td> 
+                            </tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='5' align='center' style='color:red;'>Data tidak ditemukan di kolom Memo maupun Hari.</td></tr>";
+                    }
+                }
+                ?>
+                </tbody>
+            </table>
         </div>
     </div>
 </body>
