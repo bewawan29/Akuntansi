@@ -65,10 +65,10 @@ $data=mysqli_fetch_array($sql);
             <div class="sub-menu">
                 <?php echo date("l, d-M-Y"); ?>
                 <div id="clock"></div>
-                <div id="teksa"></div>
+                <div id="count"></div>
             </div>
             <script src="../waktu.js"></script>
-            <script src="../mundur.js"></script>
+            <script src="mundur2026.js?v=<?php echo time(); ?>"></script>
             <script>
                 function muncul() {
                     document.getElementById("hide").style.display = "block";

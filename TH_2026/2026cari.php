@@ -51,6 +51,35 @@ if(isset($_POST['proses'])){
         .filter-group { background: #eef2f3; padding: 10px; border-radius: 5px; margin-bottom: 20px; border: 1px solid #ccc; }
         .summary-box { background: #f9f9f9; padding: 10px; margin-bottom: 10px; border-left: 5px solid steelblue; }
         .summary-box input { font-weight: bold; width: 150px; text-align: right; }
+
+        /* navigasi */
+        nav {
+            background-color: rgb(0, 0, 0);
+            display: grid;
+            grid-template-columns: 1fr 0.8fr;
+        }
+        nav .menu,
+        nav .sub-menu {
+            padding: 10px;
+        }
+        .menu-hide {
+        color: white;
+        position: relative;
+        padding: 10px;
+        display: none;
+        top: 0px;
+        }
+        nav .menu a {
+        color: white;
+        margin: 15px;
+        }
+        nav .sub-menu {
+            /* background-color: yellow; */
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 0.5fr 0.8fr;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -59,7 +88,23 @@ if(isset($_POST['proses'])){
     </div>
     
     <nav>
-        <a href="2026formtransaksi.php">BACK</a> | <?php echo date("l, d-M-Y"); ?>
+        
+        <div class="menu-hide" onclick="muncul()">MENU</div>
+            <div class="menu" id="hide">
+                <a href="2026formtransaksi.php">BACK</a>
+            </div>
+        <div class="sub-menu">
+                <?php echo date("l, d-M-Y"); ?>
+                <div id="clock"></div>
+                <div id="count"></div>
+        </div>
+            <script src="../waktu.js"></script>
+            <script src="mundur2026.js?v=<?php echo time(); ?>"></script>
+            <script>
+                function muncul(){
+                    document.getElementById("hide").style.left = "0px";
+                }
+            </script>
     </nav>
     
     <div class="utama">
