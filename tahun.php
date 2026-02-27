@@ -41,7 +41,7 @@ include_once("koneksi.php");
                 <div id="count"></div>
             </div>
             <script src="waktu.js"></script>
-            <script src="mundur.js"></script>
+            <script src="mundur.js?v=<?php echo time(); ?>"></script>
             <script>
                 function muncul() {
                     // Pastikan id "hide" ada di CSS untuk transisi left
