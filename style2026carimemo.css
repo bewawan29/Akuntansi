@@ -1,0 +1,38 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(245, 195, 155);
+}
+
+/* judul */
+.judul {
+  background-color: rgb(0, 200, 255);
+  display: flex; /* Mengaktifkan mode flexbox */
+  justify-content: center; /* Rata tengah secara horizontal */
+  align-items: center; /* Rata tengah secara vertikal */
+  /* Gunakan padding untuk mengatur jarak atas-bawah yang pas */
+  padding: 10px 0;
+}
+
+.judul h2 {
+  margin: 0; /* Menghilangkan jarak bawaan h2 yang membuat judul terlihat terlalu lebar */
+  padding: 0;
+  line-height: 0.5; /* Mengatur tinggi baris teks agar tidak ada ruang kosong tambahan */
+}
+
+/* navigasi */
+nav {
+  background-color: rgb(0, 0, 0);
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+}
+nav a {
+  color: white;
+  margin: 5px;
+}
