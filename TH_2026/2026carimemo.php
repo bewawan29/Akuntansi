@@ -13,23 +13,25 @@ include ("koneksi2026.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cari Memo - 2 Kolom</title>
-    <link rel="stylesheet" href="../stylemaster.css">
+    <link rel="stylesheet" href="../style2026carimemo.css">
     <style>
+        
         table { border-collapse: collapse; width: 100%; border: 2px solid green; }
         th { background-color: steelblue; color: white; padding: 10px; border: 1px solid green; }
         td { border: 1px solid green; padding: 8px; }
         .search-box { background: #f4f4f4; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
         input[type="text"] { width: 250px; padding: 5px; }
         .highlight { background-color: yellow; font-weight: bold; }
+
     </style>
 </head>
 <body>
     <div class="judul">
-        <h2>PENCARIAN MEMO 2026 (Global Search)</h2>
+        <h2>PENCARIAN MEMO 2026</h2>
     </div>
 
     <nav>
-        <a href="2026formmemo.php">KEMBALI KE FORM</a>
+        <a href="2026formmemo.php">Back</a>
     </nav>
 
     <div class="utama">

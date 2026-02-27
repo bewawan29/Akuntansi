@@ -4,9 +4,9 @@ if(!isset($_SESSION["username"])){
   header("Location : index.php");
   exit;
 }
-include ("koneksi2026.php");
-include ("hitung2026.php");
-include ("2026hitung.php");
+include_once ("koneksi2026.php");
+include_once ("hitung2026.php");
+include_once ("2026hitung.php");
 ?>
 
 <!DOCTYPE html>
@@ -182,10 +182,10 @@ include ("2026hitung.php");
                     <?php echo date("l, d-M-Y"); ?>
                 </div>               
                 <div id="clock"></div>
-                <div id="teksa" style="color: red;"></div>
+                <div id="count"></div>
             </div>
             <script src="../waktu.js"></script>
-            <script src="../mundur.js"></script>
+            <script src="mundur2026.js?v=<?php echo time(); ?>"></script>
             <script>
                 function muncul(){
                     document.getElementById("hide").style.display = "block";
