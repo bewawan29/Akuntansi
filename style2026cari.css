@@ -1,0 +1,105 @@
+.judul {
+  background-color: rgb(0, 200, 255);
+  display: flex; /* Mengaktifkan mode flexbox */
+  justify-content: center; /* Rata tengah secara horizontal */
+  align-items: center; /* Rata tengah secara vertikal */
+  /* Gunakan padding untuk mengatur jarak atas-bawah yang pas */
+  padding: 10px 0;
+}
+.judul h2 {
+  margin: 0; /* Menghilangkan jarak bawaan h2 yang membuat judul terlihat terlalu lebar */
+  padding: 0;
+  line-height: 0.5; /* Mengatur tinggi baris teks agar tidak ada ruang kosong tambahan */
+}
+
+/* navigasi */
+nav {
+  background-color: rgb(0, 0, 0);
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+}
+nav a {
+  color: white;
+  margin: 5px;
+}
+
+/* CSS Khusus Cetak */
+@media print {
+  /* Sembunyikan elemen yang tidak perlu di kertas */
+  nav,
+  .side,
+  .filter-group,
+  input[type="submit"],
+  a,
+  .judul h2:after {
+    display: none !important;
+  }
+
+  /* Hilangkan background warna agar hemat tinta dan bersih */
+  body {
+    background-color: white !important;
+  }
+
+  .utama {
+    display: block !important;
+  }
+
+  .main {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Rapikan Tabel */
+  table {
+    width: 100% !important;
+    border: 1px solid black !important;
+    font-size: 9pt !important;
+  }
+
+  th,
+  td {
+    border: 1px solid black !important;
+    padding: 4px !important;
+    color: black !important;
+    text-align: center; /* Rata tengah untuk judul kolom */
+  }
+
+  /* Sembunyikan kolom AKSI (Ubah) saat print */
+  table th:last-child,
+  table td:last-child {
+    display: none !important;
+  }
+
+  /* Tambahkan judul laporan jika sedang diprint */
+  .judul h2 {
+    text-align: center;
+    font-size: 14pt;
+    margin-bottom: 10px;
+  }
+  /* Sembunyikan kolom Bagian (ke-9), Post (ke-10), dan Aksi (ke-11) */
+  table th:nth-child(7),
+  table td:nth-child(7),
+  table th:nth-child(8),
+  table td:nth-child(8),
+  table th:nth-child(9),
+  table td:nth-child(9),
+  table th:nth-child(10),
+  table td:nth-child(10),
+  table th:nth-child(11),
+  table td:nth-child(11) {
+    display: none !important;
+  }
+
+  /* Pastikan tabel tetap lebar penuh */
+  table {
+    width: 100% !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}

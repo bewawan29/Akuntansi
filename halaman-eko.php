@@ -61,6 +61,7 @@ include ("koneksi.php");
                 
                 <div class="main1">
                     <li><a href="tahun.php">Tahun Data</a></li>
+                    <li><a href="../assetbsu/asset.php">ASSET BSU</a></li>
                 <!--<li><a href="https://www.google.com" target="_blank">GOOGLE</a></li>-->
                 <li><a href="https://www.google.com">Google</a></li>
                 <li><a href="https://echof17.com">cashflow</a></li>

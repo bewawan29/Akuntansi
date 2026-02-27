@@ -1,143 +1,124 @@
 <?php
 session_start();
 if(!isset($_SESSION["username"])){
-  header("Location : ../index.php");
+  header("Location: ../index.php");
   exit;
 }
 include ("koneksi2026.php");
+
+// Inisialisasi variabel awal
+$output_debit_cari = 0;
+$output_kredit_cari = 0;
+$saldo = 0;
+
+// Logika Filter 2 Kolom
+if(isset($_POST['proses'])){
+    $jenis1 = mysqli_real_escape_string($koneksi, $_POST['jenis1']);
+    $key1   = mysqli_real_escape_string($koneksi, $_POST['key1']);
+    $jenis2 = mysqli_real_escape_string($koneksi, $_POST['jenis2']);
+    $key2   = mysqli_real_escape_string($koneksi, $_POST['key2']);
+  	$jenis3 = mysqli_real_escape_string($koneksi, $_POST['jenis3']); // Filter 3
+    $key3   = mysqli_real_escape_string($koneksi, $_POST['key3']); // Kata Kunci 3
+
+    // Kondisi SQL: Mencari yang memenuhi KEDUA kriteria (AND)
+    $where_clause = "$jenis1 LIKE '%$key1%' AND $jenis2 LIKE '%$key2%' AND $jenis3 LIKE '%$key3%'";
+
+    // Hitung Total Debit
+    $q_debit = mysqli_query($koneksi, "SELECT SUM(debit) AS total FROM tabel_transaksi WHERE $where_clause");
+    $d_debit = mysqli_fetch_assoc($q_debit);
+    $output_debit_cari = $d_debit['total'] ?? 0;
+
+    // Hitung Total Kredit
+    $q_kredit = mysqli_query($koneksi, "SELECT SUM(kredit) AS total FROM tabel_transaksi WHERE $where_clause");
+    $d_kredit = mysqli_fetch_assoc($q_kredit);
+    $output_kredit_cari = $d_kredit['total'] ?? 0;
+
+    $saldo = $output_debit_cari - $output_kredit_cari;
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../styleversi.css">
+    <title>Pencarian Multi-Filter 2026</title>
+    <link rel="stylesheet" href="../style2026cari.css">
     <style>
-        table{
-            border-collapse:collapse;
-            border:2px solid green;
-            
-        }
-        th{
-            background-color:steelblue;
-            color:black;
-            height:30px;
-            border:1px solid green;
-        }
-        td{
-            border:1px solid green;
-        }
-        .main{
-            display: grid;
-        }
-        .main2{
-            order: -1;
-        }
-        
-        /* responsive */
-        @media (max-width: 450px){
-            /* judul */
-            .judul{
-                background-color: blue;
-                color: white;
-                font-size:0.7rem;
-            }
-
-            /* utama */
-            .utama{
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 0.5rem;
-            }
-            .side{
-                font-size: 1rem;
-                line-height: 1.5rem;
-            }
-            .main{
-                display: grid;
-                overflow: scroll;
-            }
-            .main2{
-                order: -1;
-                font-size: 0.8rem;
-            }
-        }
-       
+        table { border-collapse: collapse; width: 100%; border: 2px solid green; }
+        th { background-color: steelblue; color: white; padding: 8px; border: 1px solid green; font-size: 0.75rem; }
+        td { border: 1px solid green; padding: 5px; font-size: 0.75rem; }
+        .filter-group { background: #eef2f3; padding: 10px; border-radius: 5px; margin-bottom: 20px; border: 1px solid #ccc; }
+        .summary-box { background: #f9f9f9; padding: 10px; margin-bottom: 10px; border-left: 5px solid steelblue; }
+        .summary-box input { font-weight: bold; width: 150px; text-align: right; }
     </style>
 </head>
 <body>
     <div class="judul">
-            <div class="judul1">ver_25_05</div>
-            <div class="judul2"><h2>PENCARIAN 2026</h2></div>
-            <div class="judul3"></div>           
+        <h2>DOUBLE FILTER TRANSAKSI 2026</h2>
     </div>
     
     <nav>
-        <div class="menu">
-            <a href="../logout.php">LOGOUT</a>
-            <a href="2026.php">BACK</a>
-        </div>
-        <div class="sub-menu">
-            <?php echo date("l, d-M-Y"); ?>
-            <div id="clock"></div>
-        </div>
-        <script src="waktu.js"></script>
+        <a href="2026formtransaksi.php">BACK</a> | <?php echo date("l, d-M-Y"); ?>
     </nav>
     
     <div class="utama">
-        <div class="side">
-            <div class="side1">
-                <form action="" method="post">
-                <tr>
-                    <td> Jenis </td><br>
-                    <td>
-                        <select type="text" name="jenis">
-                                <option>tanggal</option>
-                                <option>bulan</option>
-                                <option>type</option>
-                                <option>bank</option>
-                                <option>bagian</option>
-                                <option>post</option>
-                                <option>transaksi</option>
-                        </select>
-                    </td>
-                </tr> <br>
-                <tr>
-                    <td> Key </td><br>
-                    <td> <input type="text" name="input"> </td> 
-                </tr>
-            </div>
-            <div class="side2">
-                <input type="submit" value="cari" name="proses">
-            </div>
-            
-                <tr>
-                    <td>  </td>
-                </tr>
-            </form>
+        <div class="filter-group">
+        <form action="" method="post">
+            <strong>Filter 1:</strong><br>
+            <select name="jenis1">
+                <option value="bagian" <?= ($_POST['jenis1'] ?? '') == 'bagian' ? 'selected' : '' ?>>Bagian</option>
+                <option value="post" <?= ($_POST['jenis1'] ?? '') == 'post' ? 'selected' : '' ?>>Post</option>
+                <option value="bank" <?= ($_POST['jenis1'] ?? '') == 'bank' ? 'selected' : '' ?>>Bank</option>
+                <option value="type" <?= ($_POST['jenis1'] ?? '') == 'type' ? 'selected' : '' ?>>Type</option>
+                <option value="transaksi" <?= ($_POST['jenis1'] ?? '') == 'transaksi' ? 'selected' : '' ?>>Transaksi</option>
+                <option value="bulan" <?= ($_POST['jenis1'] ?? '') == 'bulan' ? 'selected' : '' ?>>Bulan</option>
+            </select>
+            <input type="text" name="key1" placeholder="Kata kunci 1..." value="<?php echo $_POST['key1'] ?? ''; ?>"><br><br>
+
+            <strong>Filter 2:</strong><br>
+            <select name="jenis2">
+                <option value="post" <?= ($_POST['jenis2'] ?? '') == 'post' ? 'selected' : '' ?>>Post</option>
+                <option value="bagian" <?= ($_POST['jenis2'] ?? '') == 'bagian' ? 'selected' : '' ?>>Bagian</option>
+                <option value="bank" <?= ($_POST['jenis2'] ?? '') == 'bank' ? 'selected' : '' ?>>Bank</option>
+                <option value="type" <?= ($_POST['jenis2'] ?? '') == 'type' ? 'selected' : '' ?>>Type</option>
+                <option value="transaksi" <?= ($_POST['jenis2'] ?? '') == 'transaksi' ? 'selected' : '' ?>>Transaksi</option>
+                <option value="bulan" <?= ($_POST['jenis2'] ?? '') == 'bulan' ? 'selected' : '' ?>>Bulan</option>
+            </select>
+            <input type="text" name="key2" placeholder="Kata kunci 2..." value="<?php echo $_POST['key2'] ?? ''; ?>"><br><br>
+
+            <strong>Filter 3:</strong><br>
+            <select name="jenis3">
+                <option value="bank" <?= ($_POST['jenis3'] ?? '') == 'bank' ? 'selected' : '' ?>>Bank</option>
+                <option value="type" <?= ($_POST['jenis3'] ?? '') == 'type' ? 'selected' : '' ?>>Type</option>
+                <option value="post" <?= ($_POST['jenis3'] ?? '') == 'post' ? 'selected' : '' ?>>Post</option>
+                <option value="bagian" <?= ($_POST['jenis3'] ?? '') == 'bagian' ? 'selected' : '' ?>>Bagian</option>
+                <option value="transaksi" <?= ($_POST['jenis3'] ?? '') == 'transaksi' ? 'selected' : '' ?>>Transaksi</option>
+                <option value="bulan" <?= ($_POST['jenis3'] ?? '') == 'bulan' ? 'selected' : '' ?>>Bulan</option>
+            </select>
+            <input type="text" name="key3" placeholder="Kata kunci 3..." value="<?php echo $_POST['key3'] ?? ''; ?>"><br><br>
+
+            <input type="submit" value="Terapkan Filter" name="proses" style="width: 100%; padding: 10px; background: green; color: white; border: none; cursor: pointer;">
+        </form>
+    </div>
         </div>
+
         <div class="main">
-            <div class="main1">
-                <?php
-                    $query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where $_POST[jenis] LIKE '%$_POST[input]%'";
-                    $query_result=mysqli_query($koneksi, $query);
-                    while($row=mysqli_fetch_assoc($query_result)){
-                        $output_debit_cari=$row['sum'];
-                    }
-                    ?>
-                    <?php
-                    $query2="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where $_POST[jenis] LIKE '%$_POST[input]%'";
-                    $query_result2=mysqli_query($koneksi, $query2);
-                    while($row2=mysqli_fetch_assoc($query_result2)){
-                        $output_kredit_cari=$row2['sum'];
-                    }
-                ?>
-                <?php
-                    $saldo = $output_debit_cari - $output_kredit_cari
-                ?>
-                    
-                <table>
+            <?php if(isset($_POST['proses'])): ?>
+            <div class="summary-box">
+                Debit: <input type="text" readonly value="<?php echo number_format($output_debit_cari, 0, ',', '.'); ?>"> 
+                Kredit: <input type="text" readonly value="<?php echo number_format($output_kredit_cari, 0, ',', '.'); ?>"> 
+                Saldo: <input type="text" readonly value="<?php echo number_format($saldo, 0, ',', '.'); ?>">
+            </div>
+          
+          <button onclick="window.print()" style="padding: 5px 20px; background: steelblue; color: white; border: none; cursor: pointer; border-radius: 3px;">
+                Cetak Laporan
+            </button>
+          
+            <?php endif; ?>
+
+            <table>
+                <thead>
                     <tr>
                         <th>No</th>
                         <th>Tanggal</th>
@@ -149,70 +130,40 @@ include ("koneksi2026.php");
                         <th>Bank</th>
                         <th>Bagian</th>
                         <th>Post</th>
-                        <th>Transaksi</th>
-                        <th colspan="2">Aksi </th>
+                        <th>Aksi</th>
                     </tr>
-                
+                </thead>
+                <tbody>
+                <?php
+                if(isset($_POST['proses'])){
+                    $sql = "SELECT * FROM tabel_transaksi WHERE $where_clause ORDER BY no DESC";
+                    $query = mysqli_query($koneksi, $sql);
 
-                    <?php
-                        if(isset($_POST['proses'])){
-                        $sql="select * from tabel_transaksi where $_POST[jenis] LIKE '%$_POST[input]%' order by no DESC";
-                        $query=mysqli_query($koneksi,$sql);
-
-                        while($trans=mysqli_fetch_array($query)){
-                        echo"
-                        <tr>
-                        <td>$trans[no]</td>
-                        <td>$trans[tanggal]</td>
-                        <td>$trans[bulan]</td>
-                        <td>$trans[debit]</td>
-                        <td>$trans[kredit]</td>
-                        <td>$trans[transaksi]</td>
-                        <td>$trans[type]</td>
-                        <td>$trans[bank]</td>
-                        <td>$trans[bagian]</td>
-                        <td>$trans[post]</td>
-                        <td><a href='?kode=$trans[no]'> Hapus </a> </td>
-                        <td><a href='2025ubahtransaksi.php?kode=$trans[no]'> Ubah </a> </td> 
-                        </tr>";
-                        }
-                        }
-                    ?>
-                    <?php
-                        if(isset($_POST['caritrans'])){
-                        $sql2="select * from tabel_transaksi where transaksi LIKE '%$_POST[transaksi]%' order by no DESC";
-                        $query2=mysqli_query($koneksi,$sql2);
-
-                        while($trans2=mysqli_fetch_array($query2)){
-                        echo"
+                    if(mysqli_num_rows($query) > 0){
+                        while($trans = mysqli_fetch_array($query)){
+                            echo "
                             <tr>
-                            <td>$trans2[no]</td>
-                            <td>$trans2[tanggal]</td>
-                            <td>$trans2[bulan]</td>
-                            <td>$trans2[debit]</td>
-                            <td>$trans2[kredit]</td>
-                            <td>$trans2[transaksi]</td>
-                            <td>$trans2[type]</td>
-                            <td>$trans2[bank]</td>
-                            <td>$trans2[bagian]</td>
-                            <td>$trans2[post]</td>
-                            <td><a href='?kode=$trans2[no]'> Hapus </a> </td>
-                            <td><a href='ubahtransaksi.php?kode=$trans2[no]'> Ubah </a> </td> 
+                                <td>{$trans['no']}</td>
+                                <td>{$trans['tanggal']}</td>
+                                <td>{$trans['bulan']}</td>
+                                <td align='right'>".number_format($trans['debit'],0,',','.')."</td>
+                                <td align='right'>".number_format($trans['kredit'],0,',','.')."</td>
+                                <td>{$trans['transaksi']}</td>
+                                <td>{$trans['type']}</td>
+                                <td>{$trans['bank']}</td>
+                                <td>{$trans['bagian']}</td>
+                                <td>{$trans['post']}</td>
+                                <td><a href='2026ubahtransaksi.php?kode={$trans['no']}'>Ubah</a></td> 
                             </tr>";
                         }
-                        }
-                    ?>
-                </table>
-            </div>
-            
-            <div class="main2">
-                Debit :<input type="text" value="<?php echo ""."".number_format($output_debit_cari,2,",",".");?>">
-                Kredit :<input type="text" value="<?php echo ""."".number_format($output_kredit_cari,2,",",".");?>">
-                Saldo :<input type="text" value="<?php echo ""."".number_format($saldo,2,",",".");?>">
-            </div>
+                    } else {
+                        echo "<tr><td colspan='11' align='center'>Data tidak ditemukan untuk kombinasi filter tersebut.</td></tr>";
+                    }
+                }
+                ?>
+                </tbody>
+            </table>
         </div>
     </div>
-
-    <div class="footer">FOOTER</div>
 </body>
 </html>

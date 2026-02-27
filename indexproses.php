@@ -1,39 +1,37 @@
 <?php
 session_start();
 include "koneksi.php";
-?>
 
-<?php
 if(isset($_POST['proseslog'])){
-	$sql=mysqli_query($koneksi, "SELECT * FROM user WHERE username = '$_POST[username]' and password = '$_POST[password]'");
-//	$sql=mysqli_query($koneksi, "SELECT * FROM user WHERE username = 'eko' and password = '1111'");
-	
-	$cek = mysqli_num_rows($sql);
-	if($cek > 0){
-		$_SESSION['username'] = $_POST['username'];
+    // 1. Amankan input dari SQL Injection
+    $username = mysqli_real_escape_string($koneksi, $_POST['username']);
+    $password = mysqli_real_escape_string($koneksi, $_POST['password']);
 
-  //$user="admin";
-  //$pass="1234";
-  
-  //if(($_POST['username']==$user) || ($_POST['password']==$pass)){
-  	//$_SESSION['username'] = $_POST['username'];
- 
-		//echo "<meta http-equiv=refres content=0;URL='home.php'>";
-		if($_POST['username'] == "eko"){
-			// header ("location:tahun.php");
-			echo "<meta http-equiv=refresh content=1;URL='halaman-eko.php'>";
-		}else{
-			// header ("location:halaman.php");
-			echo "<meta http-equiv=refresh content=1;URL='halaman.php'>";
-		}
-		
-		
-	} else {
-        // echo "<p align=center><b> Username and Password salah ! </b></p>";
+    // 2. Query yang lebih aman
+    $sql = mysqli_query($koneksi, "SELECT * FROM user WHERE username = '$username' AND password = '$password'");
+    $cek = mysqli_num_rows($sql);
+
+    if($cek > 0){
+        $_SESSION['username'] = $username;
+
+        // 3. Logika Pengalihan (Routing)
+        if($username == "admin"){
+            echo "<meta http-equiv='refresh' content='1;URL=halaman-eko.php'>";
+        }
+        else if($username == "bsu"){
+            echo "<meta http-equiv='refresh' content='1;URL=../assetbsu/asset.php'>";
+        }
+        else if($username == "eko"){
+            // Pengalihan ke URL luar (External Link)
+            echo "<meta http-equiv='refresh' content='1;URL=tahun.php'>";
+        }
+        else {
+            echo "<meta http-equiv='refresh' content='1;URL=halaman.php'>";
+        }
+        
+    } else {
         echo "<script>alert('Username dan Password salah!');</script>";
-        echo "<meta http-equiv=refresh content=2;URL='index.php'>";
+        echo "<meta http-equiv='refresh' content='0;URL=index.php'>";
     }
-	
 }
-
 ?>
