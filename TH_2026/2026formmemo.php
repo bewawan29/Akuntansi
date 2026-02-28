@@ -28,6 +28,9 @@ include_once ("function2026.php");
         <nav>
             <div class="menu-hide" onclick="muncul()">MENU</div>
             <div class="menu" id="hide">
+                <div class="menu-hide" onclick="tutup()" >
+                TUTUP [X]
+                </div>
                 <a href="../logout.php">LOGOUT</a>
                 <a href="2026.php">MENU</a>
                 <a href="2026formtransaksi.php">TRANSAKSI</a>
@@ -42,8 +45,14 @@ include_once ("function2026.php");
             <script src="../waktu.js"></script>
             <script src="mundur2026.js?v=<?php echo time(); ?>"></script>
             <script>
-                function muncul(){
+                function muncul() {
+                    // Menggeser menu ke posisi 0 (muncul dari kiri)
                     document.getElementById("hide").style.left = "0px";
+                }
+
+                function tutup() {
+                    // Mengembalikan menu ke kiri luar layar
+                    document.getElementById("hide").style.left = "-100%";
                 }
             </script>
         </nav>

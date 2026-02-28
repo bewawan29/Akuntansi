@@ -31,7 +31,7 @@ include_once("koneksi.php");
         <nav>
             <div class="menu-hide" onclick="muncul()">MENU</div>
             <div class="menu" id="hide">
-                <div onclick="tutup()" style="color: white; font-weight: bold; cursor: pointer; margin-bottom: 20px; background: rgba(0,0,0,0.3); padding: 10px; text-align: center;">
+                <div class="menu-hide" onclick="tutup()" >
                 TUTUP [X]
                 </div>
                 <a href="logout.php">LOGOUT</a>

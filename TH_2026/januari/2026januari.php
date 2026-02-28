@@ -15,7 +15,7 @@ if(!isset($_SESSION["username"])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2026 januari</title>
-    <link rel="stylesheet" href="../stylemaster.css">
+    <link rel="stylesheet" href="../../tylemaster.css">
     <style>
         table{
             border-collapse:collapse;
@@ -120,28 +120,37 @@ if(!isset($_SESSION["username"])){
         }
 
 		/* responsive */
-        @media (max-width: 450px){
+        @media only screen and (max-width: 450px) {
 			/* navigasi */
-            .container nav {
-                font-size: 0.5rem;
-                grid-template-columns: 0.3fr 1fr;
-            }
-            .container nav .menu {
-                position: absolute;
-                top: 66px;
-                background-color: brown;
-                /* left: -170px; */
-                display: none;
-            }
-            .container nav .menu-hide {
-                display: block;
-                position: relative;
-                z-index: 5;
-            }
-            .container nav .menu-hide:hover .container nav .menu {
-                display: block;
-                background-color: brown;
-            }
+  .container nav {
+    font-size: 0.7rem; /* Diperbesar sedikit agar mudah ditekan jari */
+    grid-template-columns: auto 1fr;
+    position: relative;
+  }
+  .container nav .menu {
+    position: fixed;
+    top: 0;
+    left: -100%; /* Sembunyi total ke kiri */
+    width: 250px; /* Lebar menu saat muncul */
+    height: 100vh;
+    background-color: brown;
+    z-index: 999;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  /* Saat fungsi muncul() di JS dipanggil, menu akan bergeser ke left: 0 */
+
+  .container nav .menu-hide {
+    display: block;
+    cursor: pointer;
+    padding: 5px 10px;
+    background: #555;
+    color: white;
+    border-radius: 3px;
+  }
 
 			/* utama */
 			.container .utama{
@@ -171,10 +180,13 @@ if(!isset($_SESSION["username"])){
         <nav>
             <div class="menu-hide" onclick="muncul()">MENU</div>
             <div class="menu" id="hide">
-                <a href="../TH_2026/logout.php">LOGOUT</a>
+                <a href="../../logout.php">LOGOUT</a>
                 <a href="../2026.php">BACK</a>
                 <a href="2026januaridetail.php">DETAIL</a>
                 <a href="2026typejanuari.php">Umum/Pribadi</a>
+                <div onclick="tutup()" style="color: white; font-weight: bold; cursor: pointer; margin-bottom: 20px; background: rgba(0,0,0,0.3); padding: 10px; text-align: center;">
+                TUTUP [X]
+                </div>
             </div>
 
             <div class="sub-menu">
@@ -186,7 +198,13 @@ if(!isset($_SESSION["username"])){
             <script src="../mundur2026.js?v=<?php echo time(); ?>"></script>
             <script>
                 function muncul() {
-                    document.getElementById("hide").style.display = "block";
+                    // Menggeser menu ke posisi 0 (muncul dari kiri)
+                    document.getElementById("hide").style.left = "0px";
+                }
+
+                function tutup() {
+                    // Mengembalikan menu ke kiri luar layar
+                    document.getElementById("hide").style.left = "-100%";
                 }
             </script>
         </nav>

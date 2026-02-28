@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	if(!isset($_SESSION["username"])){
-	header("Location : ../index.php");
+	header("Location: ../index.php");
 	exit;
 	}
 	include ("koneksi2026.php");
@@ -204,6 +204,9 @@
         <nav>
             <div class="menu-hide" onclick="muncul()">MENU</div>
             <div class="menu" id="hide">
+                <div class="menu-hide" onclick="tutup()" >
+                TUTUP [X]
+                </div>
                 <a href="../logout.php">LOGOUT</a>
                 <a href="2026.php">MENU</a>
                 <a href="2026formmemo.php">MEMO</a>
@@ -219,9 +222,14 @@
             <script src="../waktu.js"></script>
             <script src="mundur2026.js?v=<?php echo time(); ?>"></script>
             <script>
-                function muncul(){
-                    // document.getElementById("hide").style.display = "block";
+                function muncul() {
+                    // Menggeser menu ke posisi 0 (muncul dari kiri)
                     document.getElementById("hide").style.left = "0px";
+                }
+
+                function tutup() {
+                    // Mengembalikan menu ke kiri luar layar
+                    document.getElementById("hide").style.left = "-100%";
                 }
             </script>
         </nav>

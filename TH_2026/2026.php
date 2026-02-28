@@ -240,7 +240,7 @@ include_once ("maret/2026hitungmaret.php");
             <div class="menu-hide" onclick="muncul()">MENU</div>
             
             <div class="menu" id="hide">
-                <div onclick="tutup()" style="color: white; font-weight: bold; cursor: pointer; margin-bottom: 20px; background: rgba(0,0,0,0.3); padding: 10px; text-align: center;">
+                <div class="menu-hide" onclick="tutup()" >
                 TUTUP [X]
                 </div>
                 <a href="../logout.php">LOGOUT</a>
@@ -259,15 +259,15 @@ include_once ("maret/2026hitungmaret.php");
             <script src="../waktu.js"></script>
             <script src="mundur2026.js?v=<?php echo time(); ?>"></script>
             <script>
-            function muncul() {
-                // Menggeser menu ke posisi 0 (muncul dari kiri)
-                document.getElementById("hide").style.left = "0px";
-            }
+                function muncul() {
+                    // Menggeser menu ke posisi 0 (muncul dari kiri)
+                    document.getElementById("hide").style.left = "0px";
+                }
 
-            function tutup() {
-                // Mengembalikan menu ke kiri luar layar
-                document.getElementById("hide").style.left = "-100%";
-            }
+                function tutup() {
+                    // Mengembalikan menu ke kiri luar layar
+                    document.getElementById("hide").style.left = "-100%";
+                }
             </script>
         </nav>
 
