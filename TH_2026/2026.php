@@ -9,7 +9,7 @@ include_once ("koneksi2026.php");
 include_once ("2026hitung.php");
 include_once ("januari/2026hitungjanuari.php");
 include_once ("februari/2026hitungfebruari.php");
-//include ("maret/2025hitungmaret.php");
+include_once ("maret/2026hitungmaret.php");
 //include ("april/2025hitungapril.php");
 //include ("mei/2025hitungmei.php");
 //include ("juni/2025hitungjuni.php");
@@ -26,7 +26,7 @@ include_once ("februari/2026hitungfebruari.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2025</title>
+    <title>2026</title>
     <link rel="stylesheet" href="../stylemaster.css">
     <link rel="stylesheet" href="../style2025.css">
     <!-- <style>
@@ -296,8 +296,8 @@ include_once ("februari/2026hitungfebruari.php");
                     <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_januari,2,",",".");?>"> <br>                        
                     <a href="februari/2026februari.php" id="p02">FEBRUARI </a> <br>
                     <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_februari,2,",",".");?>"> <br>
-                    <a href="maret/2025maret.php" id="p02">MARET </a> <br>
-                    <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_maret,2,",",".");?>"> <br>                           
+                    <a href="maret/2026maret.php" id="p02">MARET </a> <br>
+                    <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_maret,2,",",".");?>"> <br>                           
                     <a href="april/2025april.php" id="p02">APRIL </a> <br>
                     <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_april,2,",",".");?>"> <br>
                     <a href="mei/2025mei.php" id="p02">MEI </a> <br>
