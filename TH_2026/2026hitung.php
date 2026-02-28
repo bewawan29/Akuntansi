@@ -21,230 +21,292 @@ while($row=mysqli_fetch_assoc($query_result)){
 
         <!-- rumah total-->
 <?php
-	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where post = 'rumah'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$output_debit_rumah=$row['sum'];
-    }
- ?>
-<?php
-	$query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where post = 'rumah'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$output_kredit_rumah=$row['sum'];
-    }
- ?>
+    // Ambil Debit dan Kredit sekaligus dalam satu query
+    $query = "SELECT SUM(debit) AS total_debit, SUM(kredit) AS total_kredit 
+              FROM tabel_transaksi 
+              WHERE post = 'rumah'";
+    $query_result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($query_result);
+
+    // Gunakan operator ?? 0 agar jika data kosong, variabel berisi angka 0 (bukan error)
+    $output_debit_rumah  = $row['total_debit'] ?? 0;
+    $output_kredit_rumah = $row['total_kredit'] ?? 0;
+
+    // Anda juga bisa langsung hitung saldonya di sini
+    $saldo_rumah = $output_debit_rumah - $output_kredit_rumah;
+?>
 
  <!-- makan total-->
  <?php
-	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where post = 'makan'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$output_debit_makan=$row['sum'];
-    }
- ?>
-<?php
-	$query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where post = 'makan'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$output_kredit_makan=$row['sum'];
-    }
- ?>
+    // Ambil Debit dan Kredit sekaligus dalam satu query
+    $query = "SELECT SUM(debit) AS total_debit, SUM(kredit) AS total_kredit 
+              FROM tabel_transaksi 
+              WHERE post = 'makan'";
+    $query_result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($query_result);
+
+    // Gunakan operator ?? 0 agar jika data kosong, variabel berisi angka 0 (bukan error)
+    $output_debit_makan  = $row['total_debit'] ?? 0;
+    $output_kredit_makan = $row['total_kredit'] ?? 0;
+
+    // Anda juga bisa langsung hitung saldonya di sini
+    $saldo_makan = $output_debit_makan - $output_kredit_makan;
+?> 
 
 <!-- kesehatan -->
-<?php
-	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where post = 'kesehatan'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$output_debit_kesehatan=$row['sum'];
-    }
- ?>
-<?php
-	$query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where post = 'kesehatan'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$output_kredit_kesehatan=$row['sum'];
-    }
- ?>
+ <?php
+    // Ambil Debit dan Kredit sekaligus dalam satu query
+    $query = "SELECT SUM(debit) AS total_debit, SUM(kredit) AS total_kredit 
+              FROM tabel_transaksi 
+              WHERE post = 'kesehatan'";
+    $query_result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($query_result);
+
+    // Gunakan operator ?? 0 agar jika data kosong, variabel berisi angka 0 (bukan error)
+    $output_debit_kesehatan  = $row['total_debit'] ?? 0;
+    $output_kredit_kesehatan = $row['total_kredit'] ?? 0;
+
+    // Anda juga bisa langsung hitung saldonya di sini
+    $saldo_kesehatan = $output_debit_kesehatan - $output_kredit_kesehatan;
+?>
 
 <!-- lain-lain -->
-<?php
-	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where post = 'lain-lain'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$output_debit_lain=$row['sum'];
-    }
- ?>
-<?php
-	$query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where post = 'lain-lain'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$output_kredit_lain=$row['sum'];
-    }
- ?>
+ <?php
+    // Ambil Debit dan Kredit sekaligus dalam satu query
+    $query = "SELECT SUM(debit) AS total_debit, SUM(kredit) AS total_kredit 
+              FROM tabel_transaksi 
+              WHERE post = 'lain-lain'";
+    $query_result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($query_result);
+
+    // Gunakan operator ?? 0 agar jika data kosong, variabel berisi angka 0 (bukan error)
+    $output_debit_lain  = $row['total_debit'] ?? 0;
+    $output_kredit_lain = $row['total_kredit'] ?? 0;
+
+    // Anda juga bisa langsung hitung saldonya di sini
+    $saldo_lain = $output_debit_lain - $output_kredit_lain;
+?>
+
+<!-- total pribadi -->
+ <?php
+    // Ambil Debit dan Kredit sekaligus dalam satu query
+    $query = "SELECT SUM(debit) AS total_debit, SUM(kredit) AS total_kredit 
+              FROM tabel_transaksi 
+              WHERE bagian = 'pribadi'";
+    $query_result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($query_result);
+
+    // Gunakan operator ?? 0 agar jika data kosong, variabel berisi angka 0 (bukan error)
+    $output_debit_pribadi  = $row['total_debit'] ?? 0;
+    $output_kredit_pribadi = $row['total_kredit'] ?? 0;
+
+    // Anda juga bisa langsung hitung saldonya di sini
+    $saldo_pribadi = $output_debit_pribadi - $output_kredit_pribadi;
+?>
+
+ <!-- total umum -->
+  <?php
+    // Ambil Debit dan Kredit sekaligus dalam satu query
+    $query = "SELECT SUM(debit) AS total_debit, SUM(kredit) AS total_kredit 
+              FROM tabel_transaksi 
+              WHERE bagian = 'umum'";
+    $query_result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($query_result);
+
+    // Gunakan operator ?? 0 agar jika data kosong, variabel berisi angka 0 (bukan error)
+    $output_debit_umum  = $row['total_debit'] ?? 0;
+    $output_kredit_umum = $row['total_kredit'] ?? 0;
+
+    // Anda juga bisa langsung hitung saldonya di sini
+    $saldo_umum = $output_debit_umum - $output_kredit_umum;
+?>
 
 <!-- rumah umum-->
-<?php
-	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where bagian = 'umum' AND post = 'rumah'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$umum_debit_rumah=$row['sum'];
-    }
- ?>
-<?php
-	$query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where bagian = 'umum' AND post = 'rumah'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$umum_kredit_rumah=$row['sum'];
-    }
- ?>
+ <?php
+    // Ambil Debit dan Kredit sekaligus dalam satu query
+    $query = "SELECT SUM(debit) AS total_debit, SUM(kredit) AS total_kredit 
+              FROM tabel_transaksi
+              WHERE bagian = 'umum' AND post = 'rumah'";
+    $query_result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($query_result);
+
+    // Gunakan operator ?? 0 agar jika data kosong, variabel berisi angka 0 (bukan error)
+    $output_debit_rumah  = $row['total_debit'] ?? 0;
+    $output_kredit_rumah = $row['total_kredit'] ?? 0;
+
+    // Anda juga bisa langsung hitung saldonya di sini
+    $umum_rumah = $output_debit_rumah - $output_kredit_rumah;
+?>
 
 <!-- makan umum -->
-<?php
-	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where bagian = 'umum' AND post = 'makan'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$umum_debit_makan=$row['sum'];
-    }
- ?>
-<?php
-	$query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where bagian = 'umum' AND post = 'makan'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$umum_kredit_makan=$row['sum'];
-    }
- ?>
+ <?php
+    // Ambil Debit dan Kredit sekaligus dalam satu query
+    $query = "SELECT SUM(debit) AS total_debit, SUM(kredit) AS total_kredit 
+              FROM tabel_transaksi
+              WHERE bagian = 'umum' AND post = 'makan'";
+    $query_result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($query_result);
+
+    // Gunakan operator ?? 0 agar jika data kosong, variabel berisi angka 0 (bukan error)
+    $output_debit_makan  = $row['total_debit'] ?? 0;
+    $output_kredit_makan = $row['total_kredit'] ?? 0;
+
+    // Anda juga bisa langsung hitung saldonya di sini
+    $umum_makan = $output_debit_makan - $output_kredit_makan;
+?>
 
 <!-- kesehatan umum -->
-<?php
-	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where bagian = 'umum' AND post = 'kesehatan'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$umum_debit_kesehatan=$row['sum'];
-    }
- ?>
-<?php
-	$query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where bagian = 'umum' AND post = 'kesehatan'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$umum_kredit_kesehatan=$row['sum'];
-    }
- ?>
+ <?php
+    // Ambil Debit dan Kredit sekaligus dalam satu query
+    $query = "SELECT SUM(debit) AS total_debit, SUM(kredit) AS total_kredit 
+              FROM tabel_transaksi
+              WHERE bagian = 'umum' AND post = 'kesehatan'";
+    $query_result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($query_result);
+
+    // Gunakan operator ?? 0 agar jika data kosong, variabel berisi angka 0 (bukan error)
+    $output_debit_kesehatan  = $row['total_debit'] ?? 0;
+    $output_kredit_kesehatan = $row['total_kredit'] ?? 0;
+
+    // Anda juga bisa langsung hitung saldonya di sini
+    $umum_kesehatan = $output_debit_kesehatan - $output_kredit_kesehatan;
+?>
 
 <!-- pendapatan umum -->
-<?php
-	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where bagian = 'umum' AND post = 'pendapatan'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$umum_debit_pendapatan=$row['sum'];
-    }
- ?>
-<?php
-	$query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where bagian = 'umum' AND post = 'pendapatan'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$umum_kredit_pendapatan=$row['sum'];
-    }
- ?>
+ <?php
+    // Ambil Debit dan Kredit sekaligus dalam satu query
+    $query = "SELECT SUM(debit) AS total_debit, SUM(kredit) AS total_kredit 
+              FROM tabel_transaksi
+              WHERE bagian = 'umum' AND post = 'pendapatan'";
+    $query_result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($query_result);
+
+    // Gunakan operator ?? 0 agar jika data kosong, variabel berisi angka 0 (bukan error)
+    $output_debit_pendapatan  = $row['total_debit'] ?? 0;
+    $output_kredit_pendapatan = $row['total_kredit'] ?? 0;
+
+    // Anda juga bisa langsung hitung saldonya di sini
+    $umum_pendapatan = $output_debit_pendapatan - $output_kredit_pendapatan;
+?>
 
 <!-- gaji umum -->
-<?php
-	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where bagian = 'umum' AND post = 'gaji'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$umum_debit_gaji=$row['sum'];
-    }
- ?>
-<?php
-	$query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where bagian = 'umum' AND post = 'gaji'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$umum_kredit_gaji=$row['sum'];
-    }
- ?>
+ <?php
+    // Ambil Debit dan Kredit sekaligus dalam satu query
+    $query = "SELECT SUM(debit) AS total_debit, SUM(kredit) AS total_kredit 
+              FROM tabel_transaksi
+              WHERE bagian = 'umum' AND post = 'gaji'";
+    $query_result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($query_result);
+
+    // Gunakan operator ?? 0 agar jika data kosong, variabel berisi angka 0 (bukan error)
+    $output_debit_gaji  = $row['total_debit'] ?? 0;
+    $output_kredit_gaji = $row['total_kredit'] ?? 0;
+
+    // Anda juga bisa langsung hitung saldonya di sini
+    $umum_gaji = $output_debit_gaji - $output_kredit_gaji;
+?>
 
 <!-- lain-lain umum -->
-<?php
-	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where bagian = 'umum' AND post = 'lain-lain'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$umum_debit_lain=$row['sum'];
-    }
- ?>
-<?php
-	$query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where bagian = 'umum' AND post = 'lain-lain'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$umum_kredit_lain=$row['sum'];
-    }
- ?>
+ <?php
+    // Ambil Debit dan Kredit sekaligus dalam satu query
+    $query = "SELECT SUM(debit) AS total_debit, SUM(kredit) AS total_kredit 
+              FROM tabel_transaksi
+              WHERE bagian = 'umum' AND post = 'lain-lain'";
+    $query_result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($query_result);
 
+    // Gunakan operator ?? 0 agar jika data kosong, variabel berisi angka 0 (bukan error)
+    $output_debit_lain  = $row['total_debit'] ?? 0;
+    $output_kredit_lain = $row['total_kredit'] ?? 0;
 
-<!-- rumah umum-->
-<?php
-	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where bagian = 'pribadi' AND post = 'rumah'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$pribadi_debit_rumah=$row['sum'];
-    }
- ?>
-<?php
-	$query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where bagian = 'pribadi' AND post = 'rumah'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$pribadi_kredit_rumah=$row['sum'];
-    }
- ?>
+    // Anda juga bisa langsung hitung saldonya di sini
+    $umum_lain = $output_debit_lain - $output_kredit_lain;
+?>
+
+<!-- rumah pribadi-->
+ <?php
+    // Ambil Debit dan Kredit sekaligus dalam satu query
+    $query = "SELECT SUM(debit) AS total_debit, SUM(kredit) AS total_kredit 
+              FROM tabel_transaksi
+              WHERE bagian = 'pribadi' AND post = 'rumah'";
+    $query_result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($query_result);
+
+    // Gunakan operator ?? 0 agar jika data kosong, variabel berisi angka 0 (bukan error)
+    $output_debit_rumah  = $row['total_debit'] ?? 0;
+    $output_kredit_rumah = $row['total_kredit'] ?? 0;
+
+    // Anda juga bisa langsung hitung saldonya di sini
+    $pribadi_rumah = $output_debit_rumah - $output_kredit_rumah;
+?>
 
 <!-- makan pribadi -->
-<?php
-	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where bagian = 'pribadi' AND post = 'makan'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$pribadi_debit_makan=$row['sum'];
-    }
- ?>
-<?php
-	$query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where bagian = 'pribadi' AND post = 'makan'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$pribadi_kredit_makan=$row['sum'];
-    }
- ?>
+ <?php
+    // Ambil Debit dan Kredit sekaligus dalam satu query
+    $query = "SELECT SUM(debit) AS total_debit, SUM(kredit) AS total_kredit 
+              FROM tabel_transaksi
+              WHERE bagian = 'pribadi' AND post = 'makan'";
+    $query_result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($query_result);
+
+    // Gunakan operator ?? 0 agar jika data kosong, variabel berisi angka 0 (bukan error)
+    $output_debit_makan  = $row['total_debit'] ?? 0;
+    $output_kredit_makan = $row['total_kredit'] ?? 0;
+
+    // Anda juga bisa langsung hitung saldonya di sini
+    $pribadi_makan = $output_debit_makan - $output_kredit_makan;
+?>
 
 <!-- kesehatan pribadi -->
-<?php
-	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where bagian = 'pribadi' AND post = 'kesehatan'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$pribadi_debit_kesehatan=$row['sum'];
-    }
- ?>
-<?php
-	$query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where bagian = 'pribadi' AND post = 'kesehatan'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$pribadi_kredit_kesehatan=$row['sum'];
-    }
- ?>
+ <?php
+    // Ambil Debit dan Kredit sekaligus dalam satu query
+    $query = "SELECT SUM(debit) AS total_debit, SUM(kredit) AS total_kredit 
+              FROM tabel_transaksi
+              WHERE bagian = 'pribadi' AND post = 'kesehatan'";
+    $query_result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($query_result);
+
+    // Gunakan operator ?? 0 agar jika data kosong, variabel berisi angka 0 (bukan error)
+    $output_debit_kesehatan  = $row['total_debit'] ?? 0;
+    $output_kredit_kesehatan = $row['total_kredit'] ?? 0;
+
+    // Anda juga bisa langsung hitung saldonya di sini
+    $pribadi_kesehatan = $output_debit_kesehatan - $output_kredit_kesehatan;
+?>
 
 <!-- pendapatan pribadi -->
-<?php
-	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where bagian = 'pribadi' AND post = 'pendapatan'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$pribadi_debit_pendapatan=$row['sum'];
-    }
- ?>
-<?php
-	$query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where bagian = 'pribadi' AND post = 'pendapatan'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$pribadi_kredit_pendapatan=$row['sum'];
-    }
- ?>
+ <?php
+    // Ambil Debit dan Kredit sekaligus dalam satu query
+    $query = "SELECT SUM(debit) AS total_debit, SUM(kredit) AS total_kredit 
+              FROM tabel_transaksi
+              WHERE bagian = 'pribadi' AND post = 'pendapatan'";
+    $query_result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($query_result);
+
+    // Gunakan operator ?? 0 agar jika data kosong, variabel berisi angka 0 (bukan error)
+    $output_debit_pendapatan  = $row['total_debit'] ?? 0;
+    $output_kredit_pendapatan = $row['total_kredit'] ?? 0;
+
+    // Anda juga bisa langsung hitung saldonya di sini
+    $pribadi_pendapatan = $output_debit_pendapatan - $output_kredit_pendapatan;
+?>
 
 <!-- gaji pribadi -->
+ <?php
+    // Ambil Debit dan Kredit sekaligus dalam satu query
+    $query = "SELECT SUM(debit) AS total_debit, SUM(kredit) AS total_kredit 
+              FROM tabel_transaksi
+              WHERE bagian = 'pribadi' AND post = 'gaji'";
+    $query_result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($query_result);
+
+    // Gunakan operator ?? 0 agar jika data kosong, variabel berisi angka 0 (bukan error)
+    $output_debit_gaji  = $row['total_debit'] ?? 0;
+    $output_kredit_gaji = $row['total_kredit'] ?? 0;
+
+    // Anda juga bisa langsung hitung saldonya di sini
+    $pribadi_gaji = $output_debit_gaji - $output_kredit_gaji;
+?>
 <?php
 	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where bagian = 'pribadi' AND post = 'gaji'";
     $query_result=mysqli_query($koneksi, $query);
@@ -261,159 +323,103 @@ while($row=mysqli_fetch_assoc($query_result)){
  ?>
 
 <!-- lain-lain pribadi -->
-<?php
-	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where bagian = 'pribadi' AND post = 'lain-lain'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$pribadi_debit_lain=$row['sum'];
-    }
- ?>
-<?php
-	$query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where bagian = 'pribadi' AND post = 'lain-lain'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$pribadi_kredit_lain=$row['sum'];
-    }
- ?>
+ <?php
+    // Ambil Debit dan Kredit sekaligus dalam satu query
+    $query = "SELECT SUM(debit) AS total_debit, SUM(kredit) AS total_kredit 
+              FROM tabel_transaksi
+              WHERE bagian = 'pribadi' AND post = 'lain-lain'";
+    $query_result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($query_result);
+
+    // Gunakan operator ?? 0 agar jika data kosong, variabel berisi angka 0 (bukan error)
+    $output_debit_lain  = $row['total_debit'] ?? 0;
+    $output_kredit_lain = $row['total_kredit'] ?? 0;
+
+    // Anda juga bisa langsung hitung saldonya di sini
+    $pribadi_lain = $output_debit_lain - $output_kredit_lain;
+?>
 
  <!-- total BCA -->
   <?php
-	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where bank = 'BCA'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$bca_debit=$row['sum'];
-    }
- ?>
-<?php
-	$query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where bank = 'BCA' ";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$bca_kredit=$row['sum'];
-    }
- ?>
+    // Ambil Debit dan Kredit sekaligus dalam satu query
+    $query = "SELECT SUM(debit) AS total_debit, SUM(kredit) AS total_kredit 
+              FROM tabel_transaksi 
+              WHERE bank = 'BCA'";
+    $query_result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($query_result);
+
+    // Gunakan operator ?? 0 agar jika data kosong, variabel berisi angka 0 (bukan error)
+    $output_debit_bca  = $row['total_debit'] ?? 0;
+    $output_kredit_bca = $row['total_kredit'] ?? 0;
+
+    // Anda juga bisa langsung hitung saldonya di sini
+    $saldo_bca = $output_debit_bca - $output_kredit_bca;
+?>
 
  <!-- total BSI -->
   <?php
-	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where bank = 'bsi'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$bsi_debit=$row['sum'];
-    }
- ?>
-<?php
-	$query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where bank = 'bsi' ";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$bsi_kredit=$row['sum'];
-    }
- ?>
+    // Ambil Debit dan Kredit sekaligus dalam satu query
+    $query = "SELECT SUM(debit) AS total_debit, SUM(kredit) AS total_kredit 
+              FROM tabel_transaksi 
+              WHERE bank = 'BSI'";
+    $query_result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($query_result);
+
+    // Gunakan operator ?? 0 agar jika data kosong, variabel berisi angka 0 (bukan error)
+    $output_debit_bsi  = $row['total_debit'] ?? 0;
+    $output_kredit_bsi = $row['total_kredit'] ?? 0;
+
+    // Anda juga bisa langsung hitung saldonya di sini
+    $saldo_bsi = $output_debit_bsi - $output_kredit_bsi;
+?>
 
  <!-- total BRI -->
   <?php
-	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where bank = 'bri'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$bri_debit=$row['sum'];
-    }
- ?>
-<?php
-	$query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where bank = 'bri' ";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$bri_kredit=$row['sum'];
-    }
- ?>
+    // Ambil Debit dan Kredit sekaligus dalam satu query
+    $query = "SELECT SUM(debit) AS total_debit, SUM(kredit) AS total_kredit 
+              FROM tabel_transaksi 
+              WHERE bank = 'BRI'";
+    $query_result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($query_result);
+
+    // Gunakan operator ?? 0 agar jika data kosong, variabel berisi angka 0 (bukan error)
+    $output_debit_bri  = $row['total_debit'] ?? 0;
+    $output_kredit_bri = $row['total_kredit'] ?? 0;
+
+    // Anda juga bisa langsung hitung saldonya di sini
+    $saldo_bri = $output_debit_bri - $output_kredit_bri;
+?>
 
  <!-- total Niaga -->
   <?php
-	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where bank = 'niaga'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$niaga_debit=$row['sum'];
-    }
- ?>
-<?php
-	$query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where bank = 'niaga' ";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$niaga_kredit=$row['sum'];
-    }
- ?>
+    // Ambil Debit dan Kredit sekaligus dalam satu query
+    $query = "SELECT SUM(debit) AS total_debit, SUM(kredit) AS total_kredit 
+              FROM tabel_transaksi 
+              WHERE bank = 'Niaga'";
+    $query_result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($query_result);
+
+    // Gunakan operator ?? 0 agar jika data kosong, variabel berisi angka 0 (bukan error)
+    $output_debit_niaga  = $row['total_debit'] ?? 0;
+    $output_kredit_niaga = $row['total_kredit'] ?? 0;
+
+    // Anda juga bisa langsung hitung saldonya di sini
+    $saldo_niaga = $output_debit_niaga - $output_kredit_niaga;
+?>
 
  <!-- total cash -->
   <?php
-	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where type = 'Cash'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$cash_debit=$row['sum'];
-    }
- ?>
-<?php
-	$query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where type = 'Cash' ";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$cash_kredit=$row['sum'];
-    }
- ?>
+    // Ambil Debit dan Kredit sekaligus dalam satu query
+    $query = "SELECT SUM(debit) AS total_debit, SUM(kredit) AS total_kredit 
+              FROM tabel_transaksi 
+              WHERE type = 'cash'";
+    $query_result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($query_result);
 
- <!-- total pribadi -->
-  <?php
-	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where bagian = 'pribadi'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$pribadi_debit=$row['sum'];
-    }
- ?>
-<?php
-	$query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where bagian = 'pribadi' ";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$pribadi_kredit=$row['sum'];
-    }
- ?>
+    // Gunakan operator ?? 0 agar jika data kosong, variabel berisi angka 0 (bukan error)
+    $output_debit_cash  = $row['total_debit'] ?? 0;
+    $output_kredit_cash = $row['total_kredit'] ?? 0;
 
- <!-- total umum -->
-  <?php
-	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where bagian = 'umum'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$umum_debit=$row['sum'];
-    }
- ?>
-<?php
-	$query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where bagian = 'umum' ";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$umum_kredit=$row['sum'];
-    }
- ?>
-
-<?php
-    $saldo=$output-$output2;
-    $saldo_rumah = $output_debit_rumah - $output_kredit_rumah ;
-    $saldo_makan = $output_debit_makan - $output_kredit_makan ;
-    $saldo_kesehatan = $output_debit_kesehatan - $output_kredit_kesehatan ;
-    $saldo_lain = $output_debit_lain - $output_kredit_lain ;
-
-    $umum_rumah = $umum_debit_rumah - $umum_kredit_rumah ;
-    $umum_makan = $umum_debit_makan - $umum_kredit_makan ;
-    $umum_kesehatan = $umum_debit_kesehatan - $umum_kredit_kesehatan ;
-    $umum_pendapatan = $umum_debit_pendapatan - $umum_kredit_pendapatan ;
-    $umum_gaji = $umum_debit_gaji - $umum_kredit_gaji ;
-    $umum_lain = $umum_debit_lain - $umum_kredit_lain ;
-
-    $pribadi_rumah = $pribadi_debit_rumah - $pribadi_kredit_rumah ;
-    $pribadi_makan = $pribadi_debit_makan - $pribadi_kredit_makan ;
-    $pribadi_kesehatan = $pribadi_debit_kesehatan - $pribadi_kredit_kesehatan ;
-    $pribadi_pendapatan = $pribadi_debit_pendapatan - $pribadi_kredit_pendapatan ;
-    $pribadi_gaji = $pribadi_debit_gaji - $pribadi_kredit_gaji ;
-    $pribadi_lain = $pribadi_debit_lain - $pribadi_kredit_lain ;
-
-    $bca_output = $bca_debit - $bca_kredit ;
-    $bsi_output = $bsi_debit - $bsi_kredit ;
-    $niaga_output = $niaga_debit - $niaga_kredit ;
-    $bri_output = $bri_debit - $bri_kredit ;
-    $cash_output = $cash_debit - $cash_kredit ;
-    $pribadi_output = $pribadi_debit - $pribadi_kredit ;
-    $umum_output = $umum_debit - $umum_kredit ;
+    // Anda juga bisa langsung hitung saldonya di sini
+    $saldo_cash = $output_debit_cash - $output_kredit_cash;
 ?>

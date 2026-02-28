@@ -1,17 +1,24 @@
 <?php
-	$query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where bulan='02'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$saldo_debit_februari=$row['sum'];
-    }
- ?>
+// Mengambil file koneksi yang ada satu folder di atas folder 'januari'
+include_once __DIR__ . "/../koneksi2026.php"; 
+?>
+
 <?php
-	$query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where bulan='02' ";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$saldo_kredit_februari=$row['sum'];
-    }
- ?>
+    // Ambil Debit dan Kredit sekaligus dalam satu query
+    $query = "SELECT SUM(debit) AS total_debit, SUM(kredit) AS total_kredit 
+              FROM tabel_transaksi 
+              WHERE bulan = '02'";
+              
+    $query_result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($query_result);
+
+    // Gunakan operator ?? 0 agar jika data kosong, variabel berisi angka 0 (bukan error)
+    $output_debit_februari  = $row['total_debit'] ?? 0;
+    $output_kredit_februari = $row['total_kredit'] ?? 0;
+    
+    // Anda juga bisa langsung hitung saldonya di sini
+    $saldo_februari = $output_debit_februari - $output_kredit_februari;
+?>
 
 <!-- rumah februari -->
 <?php
@@ -303,7 +310,7 @@
  ?>
 
 <?php
-    $saldo_total_februari = $saldo_debit_februari - $saldo_kredit_februari;
+    /*$saldo_total_februari = $saldo_debit_februari - $saldo_kredit_februari;
 
     $saldo_rumah_februari = $output_debit_rumah_februari - $output_kredit_rumah_februari;
     $saldo_makan_februari = $output_debit_makan_februari - $output_kredit_makan_februari ;
@@ -336,5 +343,5 @@
 
     $pengeluaran_pribadi_februari = ((0-1)*($pribadi_rumah_februari + $pribadi_makan_februari+$pribadi_kesehatan_februari+$pribadi_lain_februari));
     $revenue_pribadi_februari=$pribadi_gaji_februari+$pribadi_pendapatan_februari;
-    $saldo_pribadi_februari=$revenue_pribadi_februari-$pengeluaran_pribadi_februari;
+    $saldo_pribadi_februari=$revenue_pribadi_februari-$pengeluaran_pribadi_februari;*/
 ?>

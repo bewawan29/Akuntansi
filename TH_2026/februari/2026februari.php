@@ -1,12 +1,12 @@
 <?php
 session_start();
 if(!isset($_SESSION["username"])){
-  header("Location : ../index.php");
+  header("Location: ../TH_2026/index.php");
   exit;
 }
-    include ("../koneksi2026.php");
+    include_once ("../koneksi2026.php");
     //include ("../hitung.php");
-	include ("2026hitungfebruari.php");
+	include_once ("2026hitungfebruari.php");
 ?>
 
 <!DOCTYPE html>
@@ -182,8 +182,8 @@ if(!isset($_SESSION["username"])){
                 <div id="clock"></div>
                 <div id="count"></div>
             </div>
-            <script src="../waktu.js"></script>
-            <script src="../mundur.js"></script>
+            <script src="../../waktu.js"></script>
+            <script src="../mundur2026.js?v=<?php echo time(); ?>"></script>
             <script>
                 function muncul() {
                     document.getElementById("hide").style.display = "block";
@@ -194,11 +194,11 @@ if(!isset($_SESSION["username"])){
         <div class="utama">
             <div class="side">
                 Total Debit :
-                <input type="text" value="<?php echo ""."".number_format($saldo_debit_februari,2,",",".");?>"><br>
+                <input type="text" value="<?php echo ""."".number_format($output_debit_februari,2,",",".");?>"><br>
                 Total Kredit :
-                <input type="text" value="<?php echo ""."".number_format($saldo_kredit_februari,2,",",".");?>"><br>
+                <input type="text" value="<?php echo ""."".number_format($output_kredit_februari,2,",",".");?>"><br>
                 Total Saldo :
-                <input type="text" value="<?php echo ""."".number_format($saldo_total_februari,2,",",".");?>">
+                <input type="text" value="<?php echo ""."".number_format($saldo_februari,2,",",".");?>">
             </div>
             <div class="main">
                 <table>

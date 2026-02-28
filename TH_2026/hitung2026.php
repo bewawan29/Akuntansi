@@ -1,22 +1,25 @@
 <?php
-include ("koneksi2026.php")
+include_once ("koneksi2026.php")
 ?>
 
 <!-- januari -->
 <?php
-    $query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where bulan='01'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$output_debit_januari=$row['sum'];
-    }
+    // Ambil Debit dan Kredit sekaligus dalam satu query
+    $query = "SELECT SUM(debit) AS total_debit, SUM(kredit) AS total_kredit 
+              FROM tabel_transaksi 
+              WHERE bulan = '01'";
+              
+    $query_result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($query_result);
+
+    // Gunakan operator ?? 0 agar jika data kosong, variabel berisi angka 0 (bukan error)
+    $output_debit_januari  = $row['total_debit'] ?? 0;
+    $output_kredit_januari = $row['total_kredit'] ?? 0;
+    
+    // Anda juga bisa langsung hitung saldonya di sini
+    //$saldo_januari = $output_debit_januari - $output_kredit_januari;
 ?>
-<?php
-    $query="SELECT  SUM(kredit) AS sum FROM tabel_transaksi Where bulan='01'";
-    $query_result=mysqli_query($koneksi, $query);
-    while($row=mysqli_fetch_assoc($query_result)){
-    	$output_kredit_januari=$row['sum'];
-    }
-?>
+
 <!-- februari -->
 <?php
     $query="SELECT  SUM(debit) AS sum FROM tabel_transaksi Where bulan='02'";
@@ -320,8 +323,8 @@ include ("koneksi2026.php")
 <!-- total -->
 <?php
     
-    $saldo_januari=$output_debit_januari-$output_kredit_januari;
-    $saldo_februari=$output_debit_februari-$output_kredit_februari;
+    //$saldo_januari=$output_debit_januari-$output_kredit_januari;
+    /*$saldo_februari=$output_debit_februari-$output_kredit_februari;
     $saldo_maret=$output_debit_maret-$output_kredit_maret;
     $saldo_april=$output_debit_april-$output_kredit_april;
     $saldo_mei=$output_debit_mei-$output_kredit_mei;
@@ -336,6 +339,6 @@ include ("koneksi2026.php")
 
     $saldo_umum = $masuk_debit_umum - $output_kredit_umum;
     $saldo_pribadi = $masuk_debit_pribadi - $output_kredit_pribadi;
-
+    */
 	
 ?>
