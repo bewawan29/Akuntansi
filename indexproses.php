@@ -25,6 +25,10 @@ if(isset($_POST['proseslog'])){
             // Pengalihan ke URL luar (External Link)
             echo "<meta http-equiv='refresh' content='1;URL=tahun.php'>";
         }
+        else if($username == "cash"){
+            // Pengalihan ke URL luar (External Link)
+            echo "<meta http-equiv='refresh' content='1;URL=https://www.flowcash.rf.gd'>";
+        }
         else {
             echo "<meta http-equiv='refresh' content='1;URL=halaman.php'>";
         }
