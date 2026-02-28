@@ -316,6 +316,9 @@
                         <option value="">- Pilih Bank -</option>
                         <option>BCA</option>
                         <option>BRI</option>
+                        <option>Mandiri</option>
+                        <option>Niaga</option>
+                        <option>BSI</option>
                         </select><br>
 
                     <label>Bagian</label><br>
@@ -330,6 +333,15 @@
                         <option value="">- Pilih Post -</option>
                         <option>Rumah</option>
                         <option>Makan</option>
+                        <option>Kesehatan</option>
+                        <option>Transportasi</option>
+                        <option>Internet</option>
+                        <option>listrik</option>
+                        <option>Hiburan</option>
+                        <option>Gaji</option>
+                        <option>Bonus</option>
+                        <option>Parkir</option>
+                        <option>Lain-lain</option>
                         </select><br>
                       
                     <button type="submit" name="proses">Simpan</button>
