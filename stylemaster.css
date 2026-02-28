@@ -61,58 +61,69 @@ body {
 }
 
 /* responsive */
+/* responsive HP Portrait */
 @media only screen and (max-width: 450px) {
   .container .judul {
     background-color: blue;
     color: white;
     font-size: 0.8rem;
-    padding: 5px;
+    padding: 10px 5px; /* Sedikit lebih lega */
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   /* navigasi */
   .container nav {
-    font-size: 0.6rem;
-    grid-template-columns: 0.2fr 1fr;
+    font-size: 0.7rem; /* Diperbesar sedikit agar mudah ditekan jari */
+    grid-template-columns: auto 1fr;
+    position: relative;
   }
   .container nav .menu {
-    position: absolute;
-    top: 66px;
+    position: fixed;
+    top: 0;
+    left: -100%; /* Sembunyi total ke kiri */
+    width: 250px; /* Lebar menu saat muncul */
+    height: 100vh;
     background-color: brown;
-    left: -290px;
-    /* display: none; */
+    z-index: 999;
     transition: 0.5s;
-  }
-  .container nav .menu-hide {
-    display: block;
-    position: relative;
-    z-index: 5;
-  }
-  .container nav .menu-hide:hover .container nav .menu {
-    display: block;
-    background-color: brown;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
   }
 
-  /* utama */
+  /* Saat fungsi muncul() di JS dipanggil, menu akan bergeser ke left: 0 */
+
+  .container nav .menu-hide {
+    display: block;
+    cursor: pointer;
+    padding: 5px 10px;
+    background: #555;
+    color: white;
+    border-radius: 3px;
+  }
+
+  /* utama - Stack kolom menjadi 1 baris */
   .container .utama {
-    grid-template-columns: 1fr;
+    display: block; /* Matikan grid agar tidak kacau */
   }
+
   .container .utama .main {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column; /* Elemen main1, main2, main3 susun ke bawah */
+    width: 100%;
   }
+
   .container .utama .main .main1,
   .container .utama .main .main2,
   .container .utama .main .main3 {
+    width: 100%;
+    margin-bottom: 10px;
     border: 1px solid blue;
+    box-sizing: border-box; /* Pastikan border tidak menambah lebar elemen */
+    padding: 10px;
   }
-
-  /* footer */
-  /* .container .footer{
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                
-            } */
 }
 
 @media only screen and (min-width: 460px) and (max-width: 800px) {
