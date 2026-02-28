@@ -1,12 +1,12 @@
 <?php
 session_start();
 if(!isset($_SESSION["username"])){
-  header("Location : ../TH_2026/index.php");
+  header("Location: ../TH_2026/index.php");
   exit;
 }
-    include ("../koneksi2026.php");
+    include_once ("../koneksi2026.php");
     //include ("../hitung2026.php");
-	include ("2026hitungjanuari.php");
+	include_once ("2026hitungjanuari.php");
 ?>
 
 <!DOCTYPE html>
@@ -194,11 +194,11 @@ if(!isset($_SESSION["username"])){
         <div class="utama">
             <div class="side">
                 Total Debit :
-                <input type="text" value="<?php echo ""."".number_format($saldo_debit_januari,2,",",".");?>"><br>
+                <input type="text" value="<?php echo ""."".number_format($output_debit_januari,2,",",".");?>"><br>
                 Total Kredit :
-                <input type="text" value="<?php echo ""."".number_format($saldo_kredit_januari,2,",",".");?>"><br>
+                <input type="text" value="<?php echo ""."".number_format($output_kredit_januari,2,",",".");?>"><br>
                 Total Saldo :
-                <input type="text" value="<?php echo ""."".number_format($saldo_total_januari,2,",",".");?>">
+                <input type="text" value="<?php echo ""."".number_format($saldo_januari,2,",",".");?>">
             </div>
             <div class="main">
                 <table>
