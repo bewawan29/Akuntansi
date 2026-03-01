@@ -1,45 +1,192 @@
-table{
-            border-collapse:collapse;
-            border:2px solid green;
-            
-        }
-        th{
-            background-color:steelblue;
-            color:black;
-            height:30px;
-            border:1px solid green;
-        }
-        td{
-            border:1px solid green;
-        }
-        button{
-            width: 100px;
-            height: 30px;
-            color:red;
-        }
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 2px solid green;
+}
+th {
+  background-color: steelblue;
+  color: black;
+  height: 30px;
+  border: 1px solid green;
+}
+
+td {
+  border: 1px solid green;
+  text-align: center !important;
+  vertical-align: middle; /* Supaya rata tengah secara vertikal juga */
+}
+td[align="right"] {
+  text-align: right !important;
+  padding-right: 10px; /* Tambah sedikit jarak dari garis kanan agar tidak nempel */
+}
+button {
+  width: 100px;
+  height: 30px;
+  color: red;
+}
 
 /* utama */
-        .container .utama {
-            display: grid;
-            grid-template-columns: 1fr 4fr;
-            height: 89vh;
-        }
-        .container .utama .side{
-            background-color: rgb(181, 171, 216);
-            /* justify-items: center; */
-            font-size: 1rem;
-            line-height: 1.7rem;
-            /* text-align: center; */
-        }
-        .container .utama .side form{
-            padding: 10px;
-        }
-        .container .utama .side form input{
-            width: 100px;
-        }
-        .container .utama .main{
-            background-color: rgb(124, 175, 137);
-            line-height: 1.5rem;
-            justify-items:center;
-            overflow: scroll;
-        }
+.container .utama {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  height: 89vh;
+}
+.container .utama .side {
+  background-color: rgb(181, 171, 216);
+  /* justify-items: center; */
+  font-size: 1rem;
+  line-height: 1.7rem;
+  /* text-align: center; */
+}
+.container .utama .side form {
+  padding: 10px;
+}
+.container .utama .side form input {
+  width: 100px;
+}
+.container .utama .side form input[name="transaksi"] {
+  width: 150px;
+  /*height: 20px;*/
+}
+.container .utama .side form input[type="radio"] {
+  width: 15px;
+  height: 15px;
+}
+.container .utama .main {
+  background-color: rgb(124, 175, 137);
+  line-height: 1.5rem;
+  overflow: scroll;
+}
+
+/* responsive */
+@media only screen and (max-width: 450px) {
+  /* judul */
+  .container .judul {
+    background-color: blue;
+    color: white;
+    font-size: 0.7rem;
+    padding: 5px;
+  }
+
+  /* navigasi */
+  .container nav {
+    font-size: 0.6rem;
+    grid-template-columns: 0.2fr 1fr;
+  }
+  .container nav .menu {
+    position: absolute;
+    top: 66px;
+    background-color: brown;
+    left: -370px;
+    /* display: none; */
+    transition: 0.5s;
+  }
+  .container nav .menu-hide {
+    display: block;
+    position: relative;
+    z-index: 5;
+  }
+  .container nav .menu-hide:hover .container nav .menu {
+    display: block;
+    background-color: brown;
+  }
+
+  /* utama */
+  .container .utama {
+    grid-template-columns: 1fr;
+  }
+  .container .utama .side {
+    font-size: 0.8rem;
+    line-height: 1.5rem;
+  }
+  .container .utama .main {
+    font-size: 0.8rem;
+    justify-items: left;
+  }
+}
+
+@media only screen and (min-width: 460px) and (max-width: 800px) {
+  .container .judul {
+    background-color: salmon;
+    color: white;
+    font-size: 0.7rem;
+    padding: 5px;
+  }
+  /* navigasi */
+  .container nav {
+    font-size: 0.6rem;
+    grid-template-columns: 0.2fr 1fr;
+  }
+  .container nav .menu {
+    position: absolute;
+    top: 66px;
+    background-color: brown;
+    left: -370px;
+    /* display: none; */
+    transition: 0.5s;
+  }
+  .container nav .menu-hide {
+    display: block;
+    position: relative;
+    z-index: 5;
+  }
+  .container nav .menu-hide:hover .container nav .menu {
+    display: block;
+    background-color: brown;
+  }
+}
+
+/* CSS Khusus Cetak (Hanya aktif saat menekan tombol Print) */
+@media print {
+  /* 1. Sembunyikan elemen yang mengganggu */
+  nav, 
+    .container .nav,
+    .container .utama .side, /* Menghilangkan Form Input */
+    .judul1, 
+    .judul3, 
+    .button, 
+    .menu-hide, 
+    #count, 
+    #clock {
+    display: none !important;
+    width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 2. Atur Layout Utama agar Tabel Mengisi Layar */
+  .container .utama {
+    display: block !important;
+    border: none !important;
+  }
+
+  .container .utama .main {
+    width: 100% !important;
+    left: 0 !important;
+    position: relative !important;
+    background-color: white !important;
+    overflow: visible !important; /* Agar semua baris tabel tercetak */
+  }
+
+  /* 3. Rapikan Tabel untuk Kertas */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    color: black !important;
+  }
+
+  th,
+  td {
+    border: 1px solid #000 !important; /* Garis hitam tegas */
+    padding: 5px !important;
+    font-size: 9pt !important; /* Ukuran font standar laporan */
+  }
+
+  /* Sembunyikan kolom aksi (Hapus/Ubah) saat diprint agar lebih rapi */
+  th:last-child,
+  td:last-child,
+  th:nth-last-child(2),
+  td:nth-last-child(2) {
+    display: none !important;
+  }
+}

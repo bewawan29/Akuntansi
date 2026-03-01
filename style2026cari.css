@@ -18,9 +18,28 @@ nav {
   display: grid;
   grid-template-columns: 1fr 0.8fr;
 }
+nav .menu,
+nav .sub-menu {
+  padding: 10px;
+}
+.menu-hide {
+  color: white;
+  position: relative;
+  padding: 10px;
+  display: none;
+  top: 0px;
+}
+
 nav a {
   color: white;
   margin: 5px;
+}
+nav .sub-menu {
+  /* background-color: yellow; */
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 0.8fr;
+  text-align: center;
 }
 
 /* CSS Khusus Cetak */

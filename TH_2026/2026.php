@@ -28,7 +28,7 @@ include_once ("maret/2026hitungmaret.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2026</title>
     <link rel="stylesheet" href="../stylemaster.css">
-    <link rel="stylesheet" href="../style2025.css">
+    <link rel="stylesheet" href="../style2025.css?v=<?php echo time(); ?>">
     <style>
         
     </style>

@@ -92,9 +92,9 @@ include_once ("function2026.php");
 
             <div class="main">
                 <?php 
-        $cek_memo = mysqli_query($koneksi, "SELECT tanggal FROM tabel_memo");
-        $total_memo = mysqli_num_rows($cek_memo);
-    ?>
+                    $cek_memo = mysqli_query($koneksi, "SELECT tanggal FROM tabel_memo");
+                    $total_memo = mysqli_num_rows($cek_memo);
+                ?>
 
     <div style="background-color: white; 
                 padding: 10px; 
@@ -110,8 +110,8 @@ include_once ("function2026.php");
     <table>
         <thead>
             <tr>
-                <th width="15%">Tanggal</th>
-                <th width="10%">Hari</th>
+                <th width="10%">Tanggal</th>
+                <th width="8%">Hari</th>
                 <th>Memo</th>
                 <th colspan="2" width="15%">Aksi</th>
             </tr>

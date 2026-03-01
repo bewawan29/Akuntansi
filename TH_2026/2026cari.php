@@ -43,109 +43,99 @@ if(isset($_POST['proses'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pencarian Multi-Filter 2026</title>
+    <link rel="stylesheet" href="../stylemaster.css">
     <link rel="stylesheet" href="../style2026cari.css">
     <style>
         table { border-collapse: collapse; width: 100%; border: 2px solid green; }
         th { background-color: steelblue; color: white; padding: 8px; border: 1px solid green; font-size: 0.75rem; }
         td { border: 1px solid green; padding: 5px; font-size: 0.75rem; }
-        .filter-group { background: #eef2f3; padding: 10px; border-radius: 5px; margin-bottom: 20px; border: 1px solid #ccc; }
-        .summary-box { background: #f9f9f9; padding: 10px; margin-bottom: 10px; border-left: 5px solid steelblue; }
-        .summary-box input { font-weight: bold; width: 150px; text-align: right; }
+        .filter-group { 
+            background: #eef2f3; 
+            padding: 10px; 
+            border-radius: 5px; 
+            margin-bottom: 20px; 
+            border: 1px solid #ccc; }
+        .summary-box { 
+            background: #f9f9f9; 
+            padding: 10px; 
+            margin-bottom: 10px; 
+            border-left: 5px solid steelblue; }
+        .summary-box input { 
+            font-weight: bold; 
+            width: 150px; 
+            text-align: right; }
 
-        /* navigasi */
-        nav {
-            background-color: rgb(0, 0, 0);
-            display: grid;
-            grid-template-columns: 1fr 0.8fr;
-        }
-        nav .menu,
-        nav .sub-menu {
-            padding: 10px;
-        }
-        .menu-hide {
-        color: white;
-        position: relative;
-        padding: 10px;
-        display: none;
-        top: 0px;
-        }
-        nav .menu a {
-        color: white;
-        margin: 15px;
-        }
-        nav .sub-menu {
-            /* background-color: yellow; */
-            color: white;
-            display: grid;
-            grid-template-columns: 1fr 0.5fr 0.8fr;
-            text-align: center;
-        }
     </style>
 </head>
 <body>
-    <div class="judul">
-        <h2>DOUBLE FILTER TRANSAKSI 2026</h2>
-    </div>
-    
-    <nav>
-        
-        <div class="menu-hide" onclick="muncul()">MENU</div>
-            <div class="menu" id="hide">
-                <a href="2026formtransaksi.php">BACK</a>
-            </div>
-        <div class="sub-menu">
-                <?php echo date("l, d-M-Y"); ?>
-                <div id="clock"></div>
-                <div id="count"></div>
+    <div class="container">
+        <div class="judul">
+            <div class="judul1">ver_25_05</div>
+            <div class="judul2"><h2>FILTER TRANSAKSI 2026</h2></div>
+            <div class="judul3"></div> 
         </div>
-            <script src="../waktu.js"></script>
-            <script src="mundur2026.js?v=<?php echo time(); ?>"></script>
-            <script>
-                function muncul(){
-                    document.getElementById("hide").style.left = "0px";
-                }
-            </script>
-    </nav>
     
-    <div class="utama">
-        <div class="filter-group">
-        <form action="" method="post">
-            <strong>Filter 1:</strong><br>
-            <select name="jenis1">
-                <option value="bagian" <?= ($_POST['jenis1'] ?? '') == 'bagian' ? 'selected' : '' ?>>Bagian</option>
-                <option value="post" <?= ($_POST['jenis1'] ?? '') == 'post' ? 'selected' : '' ?>>Post</option>
-                <option value="bank" <?= ($_POST['jenis1'] ?? '') == 'bank' ? 'selected' : '' ?>>Bank</option>
-                <option value="type" <?= ($_POST['jenis1'] ?? '') == 'type' ? 'selected' : '' ?>>Type</option>
-                <option value="transaksi" <?= ($_POST['jenis1'] ?? '') == 'transaksi' ? 'selected' : '' ?>>Transaksi</option>
-                <option value="bulan" <?= ($_POST['jenis1'] ?? '') == 'bulan' ? 'selected' : '' ?>>Bulan</option>
-            </select>
-            <input type="text" name="key1" placeholder="Kata kunci 1..." value="<?php echo $_POST['key1'] ?? ''; ?>"><br><br>
+        <nav>           
+            <div class="menu-hide" onclick="muncul()">MENU</div>
+                <div class="menu" id="hide">
+                    <a href="2026formtransaksi.php">BACK</a>
+                    <button onclick="window.print()" style="background-color: steelblue; color: white; cursor: pointer; border: none; border-radius: 5px; width: 80px;">
+                    Cetak
+                </button>
+                </div>
+            <div class="sub-menu">
+                    <?php echo date("l, d-M-Y"); ?>
+                    <div id="clock"></div>
+                    <div id="count"></div>
+            </div>
+                <script src="../waktu.js"></script>
+                <script src="mundur2026.js?v=<?php echo time(); ?>"></script>
+                <script>
+                    function muncul(){
+                        document.getElementById("hide").style.left = "0px";
+                    }
+                </script>
+        </nav>
+    
+        <div class="utama">
+            <div class="filter-group">
+                <form action="" method="post">
+                    <strong>Filter 1:</strong>
+                    <select name="jenis1">
+                        <option value="bulan" <?= ($_POST['jenis1'] ?? '') == 'bulan' ? 'selected' : '' ?>>Bulan</option>
+                        <option value="transaksi" <?= ($_POST['jenis1'] ?? '') == 'transaksi' ? 'selected' : '' ?>>Transaksi</option>
+                        <option value="type" <?= ($_POST['jenis1'] ?? '') == 'type' ? 'selected' : '' ?>>Type</option>
+                        <option value="bank" <?= ($_POST['jenis1'] ?? '') == 'bank' ? 'selected' : '' ?>>Bank</option>
+                        <option value="bagian" <?= ($_POST['jenis1'] ?? '') == 'bagian' ? 'selected' : '' ?>>Bagian</option>
+                        <option value="post" <?= ($_POST['jenis1'] ?? '') == 'post' ? 'selected' : '' ?>>Post</option>                                               
+                    </select>
+                    <input type="text" name="key1" placeholder="Kata kunci 1..." value="<?php echo $_POST['key1'] ?? ''; ?>"><br><br>
 
-            <strong>Filter 2:</strong><br>
-            <select name="jenis2">
-                <option value="post" <?= ($_POST['jenis2'] ?? '') == 'post' ? 'selected' : '' ?>>Post</option>
-                <option value="bagian" <?= ($_POST['jenis2'] ?? '') == 'bagian' ? 'selected' : '' ?>>Bagian</option>
-                <option value="bank" <?= ($_POST['jenis2'] ?? '') == 'bank' ? 'selected' : '' ?>>Bank</option>
-                <option value="type" <?= ($_POST['jenis2'] ?? '') == 'type' ? 'selected' : '' ?>>Type</option>
-                <option value="transaksi" <?= ($_POST['jenis2'] ?? '') == 'transaksi' ? 'selected' : '' ?>>Transaksi</option>
-                <option value="bulan" <?= ($_POST['jenis2'] ?? '') == 'bulan' ? 'selected' : '' ?>>Bulan</option>
-            </select>
-            <input type="text" name="key2" placeholder="Kata kunci 2..." value="<?php echo $_POST['key2'] ?? ''; ?>"><br><br>
+                    <strong>Filter 2:</strong>
+                    <select name="jenis2">
+                        <option value="bulan" <?= ($_POST['jenis1'] ?? '') == 'bulan' ? 'selected' : '' ?>>Bulan</option>
+                        <option value="transaksi" <?= ($_POST['jenis1'] ?? '') == 'transaksi' ? 'selected' : '' ?>>Transaksi</option>
+                        <option value="type" <?= ($_POST['jenis1'] ?? '') == 'type' ? 'selected' : '' ?>>Type</option>
+                        <option value="bank" <?= ($_POST['jenis1'] ?? '') == 'bank' ? 'selected' : '' ?>>Bank</option>
+                        <option value="bagian" <?= ($_POST['jenis1'] ?? '') == 'bagian' ? 'selected' : '' ?>>Bagian</option>
+                        <option value="post" <?= ($_POST['jenis1'] ?? '') == 'post' ? 'selected' : '' ?>>Post</option>
+                    </select>
+                    <input type="text" name="key2" placeholder="Kata kunci 2..." value="<?php echo $_POST['key2'] ?? ''; ?>"><br><br>
 
-            <strong>Filter 3:</strong><br>
-            <select name="jenis3">
-                <option value="bank" <?= ($_POST['jenis3'] ?? '') == 'bank' ? 'selected' : '' ?>>Bank</option>
-                <option value="type" <?= ($_POST['jenis3'] ?? '') == 'type' ? 'selected' : '' ?>>Type</option>
-                <option value="post" <?= ($_POST['jenis3'] ?? '') == 'post' ? 'selected' : '' ?>>Post</option>
-                <option value="bagian" <?= ($_POST['jenis3'] ?? '') == 'bagian' ? 'selected' : '' ?>>Bagian</option>
-                <option value="transaksi" <?= ($_POST['jenis3'] ?? '') == 'transaksi' ? 'selected' : '' ?>>Transaksi</option>
-                <option value="bulan" <?= ($_POST['jenis3'] ?? '') == 'bulan' ? 'selected' : '' ?>>Bulan</option>
-            </select>
-            <input type="text" name="key3" placeholder="Kata kunci 3..." value="<?php echo $_POST['key3'] ?? ''; ?>"><br><br>
+                    <strong>Filter 3:</strong>
+                    <select name="jenis3">
+                        <option value="bulan" <?= ($_POST['jenis1'] ?? '') == 'bulan' ? 'selected' : '' ?>>Bulan</option>
+                        <option value="transaksi" <?= ($_POST['jenis1'] ?? '') == 'transaksi' ? 'selected' : '' ?>>Transaksi</option>
+                        <option value="type" <?= ($_POST['jenis1'] ?? '') == 'type' ? 'selected' : '' ?>>Type</option>
+                        <option value="bank" <?= ($_POST['jenis1'] ?? '') == 'bank' ? 'selected' : '' ?>>Bank</option>
+                        <option value="bagian" <?= ($_POST['jenis1'] ?? '') == 'bagian' ? 'selected' : '' ?>>Bagian</option>
+                        <option value="post" <?= ($_POST['jenis1'] ?? '') == 'post' ? 'selected' : '' ?>>Post</option>
+                    </select>
+                    <input type="text" name="key3" placeholder="Kata kunci 3..." value="<?php echo $_POST['key3'] ?? ''; ?>"><br><br>
 
-            <input type="submit" value="Terapkan Filter" name="proses" style="width: 100%; padding: 10px; background: green; color: white; border: none; cursor: pointer;">
-        </form>
-    </div>
+                    <input type="submit" value="Terapkan Filter" name="proses" style="width: 100%; padding: 10px; background: green; color: white; border: none; cursor: pointer;">
+                </form>
+            </div>
         </div>
 
         <div class="main">
@@ -156,7 +146,7 @@ if(isset($_POST['proses'])){
                 Saldo: <input type="text" readonly value="<?php echo number_format($saldo, 0, ',', '.'); ?>">
             </div>
           
-          <button onclick="window.print()" style="padding: 5px 20px; background: steelblue; color: white; border: none; cursor: pointer; border-radius: 3px;">
+            <button onclick="window.print()" style="padding: 5px 20px; background: steelblue; color: white; border: none; cursor: pointer; border-radius: 3px;">
                 Cetak Laporan
             </button>
           
@@ -210,5 +200,6 @@ if(isset($_POST['proses'])){
             </table>
         </div>
     </div>
+    
 </body>
 </html>
