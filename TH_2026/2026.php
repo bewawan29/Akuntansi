@@ -30,31 +30,7 @@ include_once ("maret/2026hitungmaret.php");
     <link rel="stylesheet" href="../stylemaster.css">
     <link rel="stylesheet" href="../style2025.css">
     <style>
-        #p01 {
-            background-color: #f0f0f0;
-            border: none;
-            padding: 5px;
-            width: 150px;
-            text-align: right;
-        }
-        .main1, .main2, .main3 {
-            display: inline-block;
-            vertical-align: top;
-            margin-right: 20px;
-            align-items: center;
-        }
-        /*.main1 a, .main2 a, .main3 a {
-            display: block;
-            margin-bottom: 5px;
-            text-align: center;
-        }*/
-        .side2 input {
-            background-color: #f0f0f0;
-            border: none;
-            padding: 5px;
-            width: 150px;
-            text-align: right;
-        }
+        
     </style>
 </head>
 <body>

@@ -103,27 +103,6 @@ body {
     color: white;
     border-radius: 3px;
   }
-
-  /* utama - Stack kolom menjadi 1 baris */
-  .container .utama {
-    display: block; /* Matikan grid agar tidak kacau */
-  }
-
-  .container .utama .main {
-    display: flex;
-    flex-direction: column; /* Elemen main1, main2, main3 susun ke bawah */
-    width: 100%;
-  }
-
-  .container .utama .main .main1,
-  .container .utama .main .main2,
-  .container .utama .main .main3 {
-    width: 100%;
-    margin-bottom: 10px;
-    border: 1px solid blue;
-    box-sizing: border-box; /* Pastikan border tidak menambah lebar elemen */
-    padding: 10px;
-  }
 }
 
 @media only screen and (min-width: 460px) and (max-width: 800px) {
