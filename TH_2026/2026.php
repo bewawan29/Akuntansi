@@ -29,204 +29,33 @@ include_once ("maret/2026hitungmaret.php");
     <title>2026</title>
     <link rel="stylesheet" href="../stylemaster.css">
     <link rel="stylesheet" href="../style2025.css">
-    <!-- <style>
-        * {
-            margin: 0px;
-            padding: 0px;
-            box-sizing: border-box;
-            text-decoration: none;
+    <style>
+        #p01 {
+            background-color: #f0f0f0;
+            border: none;
+            padding: 5px;
+            width: 150px;
+            text-align: right;
         }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: rgb(245, 195, 155);
+        .main1, .main2, .main3 {
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 20px;
+            align-items: center;
         }
-
-        /* judul */
-        .container .judul {
-            background-color: aqua;
-            display: grid;
-            grid-template-columns: 0.5fr 1fr 0.5fr;
-            /* width: 100vw; */
-        }
-        .container .judul .judul1 {
-            font-size: 0.6rem;
-        }
-        .container .judul .judul2 {
+        /*.main1 a, .main2 a, .main3 a {
+            display: block;
+            margin-bottom: 5px;
             text-align: center;
+        }*/
+        .side2 input {
+            background-color: #f0f0f0;
+            border: none;
+            padding: 5px;
+            width: 150px;
+            text-align: right;
         }
-
-        /* navigasi */
-        .container nav {
-            background-color: rgb(0, 0, 0);
-            display: grid;
-            grid-template-columns: 1fr 0.8fr;
-        }
-        .container nav .menu,
-        .container nav .sub-menu {
-            /* background-color: blue; */
-            padding: 10px;
-            /* border: 2px solid green; */
-        }
-        /* .container nav .sub-menu{
-            display: grid;
-            grid-template-columns: 0.5fr 0.5fr 2fr;
-        } */
-       
-        .container .menu-hide {
-            color: white;
-            position: relative;
-            padding: 10px;
-            display: none;
-            top: 0px;
-        }
-        .container nav .menu a {
-            color: white;
-            margin: 15px;
-        }
-        .container nav .sub-menu {
-            /* background-color: yellow; */
-            color: white;
-            display: grid;
-            grid-template-columns: 1fr 0.5fr 0.8fr;
-            text-align: center;
-        }
-
-        /* utama */
-        .container .utama {
-            display: grid;
-            grid-template-columns: 1fr 4fr;
-            height: 89vh;
-        }
-        .container .utama .side{
-            background-color: rgb(181, 171, 216);
-            list-style: none;
-            justify-items: center;
-            font-size: 1.3rem;
-            line-height: 4rem;
-            text-align: center;
-        }
-        .container .utama .side .side1{
-            font-size: 1rem;
-            text-align: center;
-            line-height: 2rem;
-            padding: 10px 0;
-        }.container .utama .side .side1 a{
-            color: black;
-            font-weight: bold;          
-        }
-        .container .utama .side .side2{
-            font-size: 1rem;
-            line-height: 1.5rem;
-            padding: 10px 0;
-        }
-        .container .utama .main{
-            background-color: rgb(124, 175, 137);
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            justify-items: center;
-            line-height: 1.5rem;
-        }
-        .container .utama .main .main1,
-        .container .utama .main .main2,
-        .container .utama .main .main3{
-            margin-top: 20px;
-            font-size: 1rem;
-        }
-        .container .utama .main .main1 a,
-        .container .utama .main .main2 a,
-        .container .utama .main .main3 a{
-            color: black;
-        }
-
-        /* responsive */
-        @media only screen and (max-width: 450px) {
-            .container .judul {
-                background-color: blue;
-                color: white;
-                font-size: 0.8rem;
-                padding: 5px;
-            }
-
-            /* navigasi */
-            .container nav {
-                font-size: 0.6rem;
-                grid-template-columns: 0.2fr 1fr;
-            }
-            .container nav .menu {
-                position: absolute;
-                top: 66px;
-                background-color: brown;
-                left: -290px;
-                /* display: none; */
-                transition: 0.5s;
-            }
-            .container nav .menu-hide {
-                display: block;
-                position: relative;
-                z-index: 5;
-            }
-            .container nav .menu-hide:hover .container nav .menu {
-                display: block;
-                background-color: brown;
-            }
-           
-
-            /* utama */
-            .container .utama{
-                grid-template-columns: 1fr;
-            }
-            .container .utama .main{
-                grid-template-columns: 1fr;
-            }
-            .container .utama .main .main1,
-            .container .utama .main .main2,
-            .container .utama .main .main3{
-                border: 1px solid blue;
-            }
-
-            /* footer */
-            /* .container .footer{
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                
-            } */
-        }
-
-        @media only screen and (min-width: 460px) and (max-width:800px){
-            .container .judul {
-                background-color: salmon;
-                color: white;
-                font-size: 0.7rem;
-                padding: 5px;
-            }
-            /* navigasi */
-            .container nav {
-                font-size: 0.6rem;
-                grid-template-columns: 0.2fr 1fr;
-            }
-            .container nav .menu {
-                position: absolute;
-                top: 66px;
-                background-color: brown;
-                left: -290px;
-                /* display: none; */
-                transition: 0.5s;
-            }
-            .container nav .menu-hide {
-                display: block;
-                position: relative;
-                z-index: 5;
-            }
-            .container nav .menu-hide:hover .container nav .menu {
-                display: block;
-                background-color: brown;
-            }
-        }
-
-    </style> -->
+    </style>
 </head>
 <body>
     <div class="versi"></div>
