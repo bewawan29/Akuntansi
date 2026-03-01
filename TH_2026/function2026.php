@@ -26,11 +26,11 @@ function tabel_transaksi(){
         
         echo "
         <tr>
-            <td>$trans[no]</td>
+            <td align='right'>$trans[no]</td>
             <td>$trans[tanggal]</td>
             <td>$trans[bulan]</td>
-            <td>" . number_format($trans['debit'], 0, ',', '.') . "</td>
-            <td>" . number_format($trans['kredit'], 0, ',', '.') . "</td>
+            <td align='right'>" . number_format($trans['debit'], 0, ',', '.') . "</td>
+            <td align='right'>" . number_format($trans['kredit'], 0, ',', '.') . "</td>
             <td>$trans[transaksi]</td>
             <td>$trans[type]</td>
             <td>$trans[bank]</td>
@@ -117,17 +117,17 @@ function tabel_memo(){
         
         echo "
         <tr>
-            <td>$trans[tanggal]</td>
-            <td>$trans[hari]</td>
+            <td align='center'>$trans[tanggal]</td>
+            <td align='center'>$trans[hari]</td>
             <td>$trans[memo]</td>
-            <td>
+            <td align='center'>
                 <a href='?kode=$trans[tanggal]' 
                    onclick='return confirm(\"$pesan_konfirmasi\")' 
                    style='color:red;'>
                    Hapus
                 </a> 
             </td>
-            <td><a href='2026ubahmemo.php?kode=$trans[tanggal]'>Ubah</a></td>
+            <td align='center'><a href='2026ubahmemo.php?kode=$trans[tanggal]'>Ubah</a></td>
         </tr>";
     }
 

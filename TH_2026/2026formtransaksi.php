@@ -30,6 +30,12 @@
         }
         td{
             border:1px solid green;
+            text-align: center !important;
+            vertical-align: middle; /* Supaya rata tengah secara vertikal juga */
+        }
+        td[align="right"] {
+            text-align: right !important;
+            padding-right: 10px; /* Tambah sedikit jarak dari garis kanan agar tidak nempel */
         }
         button{
             width: 100px;
@@ -361,37 +367,37 @@
             </div>
 
             <div class="main">
-              <?php 
-        $sql_cek = mysqli_query($koneksi, "SELECT no FROM tabel_transaksi");
-        $total_data = mysqli_num_rows($sql_cek);
-    ?>
+                <?php 
+                    $sql_cek = mysqli_query($koneksi, "SELECT no FROM tabel_transaksi");
+                    $total_data = mysqli_num_rows($sql_cek);
+                ?>
 
-    <div style="background: white; padding: 5px 15px; margin-bottom: 10px; border-radius: 5px; border: 1px solid green; font-weight: bold;">
-        Total Data: <?php echo $total_data; ?>
-    </div>
-		<button onclick="window.print()" style="background-color: steelblue; color: white; cursor: pointer; border: none; border-radius: 5px; width: 80px;">
-            Cetak
-        </button>
-    <table>
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Tanggal</th>
-                <th>Bulan</th>
-                <th>Debit</th>
-                <th>Kredit</th>
-                <th>Transaksi</th>
-                <th>Type</th>
-                <th>Bank</th>
-                <th>Bagian</th>
-                <th>Post</th>
-                <th colspan="2">Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php tabel_transaksi(); ?>
-        </tbody>
-    </table>
+                <div style="background: white; padding: 5px 15px; margin-bottom: 10px; border-radius: 5px; border: 1px solid green; font-weight: bold;">
+                    Total Data: <?php echo $total_data; ?>
+                </div>
+                <button onclick="window.print()" style="background-color: steelblue; color: white; cursor: pointer; border: none; border-radius: 5px; width: 80px;">
+                    Cetak
+                </button>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Tanggal</th>
+                            <th>Bulan</th>
+                            <th>Debit</th>
+                            <th>Kredit</th>
+                            <th>Transaksi</th>
+                            <th>Type</th>
+                            <th>Bank</th>
+                            <th>Bagian</th>
+                            <th>Post</th>
+                            <th colspan="2">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php tabel_transaksi(); ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
