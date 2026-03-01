@@ -15,7 +15,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../stylemaster.css">
+    <link rel="stylesheet" href="../tylemaster.css">
     <style>
         table{
             border-collapse:collapse;
@@ -30,6 +30,11 @@
         }
         td{
             border:1px solid green;
+            text-align: center;
+        }
+        td[align="right"] {
+            text-align: right !important;
+            padding-right: 10px; /* Tambah sedikit jarak dari garis kanan agar tidak nempel */
         }
         button{
             width: 100px;
@@ -97,6 +102,14 @@
             display: grid;
             grid-template-columns: 1fr 0.5fr 0.8fr;
             text-align: center;
+        }
+
+        /* side */
+        .side2 input {
+           /*width: 100%;
+            padding: 5px;
+            margin: 5px 0;*/
+            text-align: right;
         }
 
         /* utama */
@@ -191,6 +204,7 @@
                 background-color: brown;
             }
         }
+        
     </style>
 </head>
 <body>
@@ -290,7 +304,7 @@
                                 while($trans=mysqli_fetch_array($query)){
                                     echo"
                                     <tr>
-                                    <td>$trans[tanggal]</td>
+                                    <td align='center'>$trans[tanggal]</td>
                                     <td>$trans[hari]</td>
                                     <td>$trans[memo]</td>                   
                                     <td><a href='?kode=$trans[tanggal]'> Hapus </a> </td>
@@ -327,10 +341,10 @@
                         echo"
                         <tr>
                         <td>$trans1[no]</td>
-                        <td>$trans1[tanggal]</td>
-                        <td>$trans1[bulan]</td>
-                        <td>$trans1[debit]</td>
-                        <td>$trans1[kredit]</td>
+                        <td align='center'>$trans1[tanggal]</td>
+                        <td align='center'>$trans1[bulan]</td>
+                        <td align='right'>" . number_format($trans1['debit'], 0, ',', '.') . "</td>
+                        <td align='right'>" . number_format($trans1['kredit'], 0, ',', '.') . "</td>
                         <td>$trans1[transaksi]</td>
                         <td>$trans1[type]</td>
                         <td>$trans1[bank]</td>
