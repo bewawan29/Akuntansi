@@ -15,149 +15,10 @@ if(!isset($_SESSION["username"])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2026 februari</title>
-    <link rel="stylesheet" href="../stylemaster.css">
+    <link rel="stylesheet" href="../../stylemaster.css">
+    <link rel="stylesheet" href="../../style2026januari.css?v=<?php echo time(); ?>">
     <style>
-        table{
-            border-collapse:collapse;
-            border:2px solid green;
-            
-        }
-        th{
-            background-color:steelblue;
-            color:black;
-            height:30px;
-            border:1px solid green;
-        }
-        td{
-            border:1px solid green;
-        }
-        .main{
-            overflow: scroll;
-        }
-
-        * {
-            margin: 0px;
-            padding: 0px;
-            box-sizing: border-box;
-            text-decoration: none;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: rgb(245, 195, 155);
-        }
-
-        /* judul */
-        .container .judul {
-            background-color: aqua;
-            display: grid;
-            grid-template-columns: 0.5fr 1fr 0.5fr;
-            /* width: 100vw; */
-        }
-        .container .judul .judul1 {
-            font-size: 0.6rem;
-        }
-        .container .judul .judul2 {
-            text-align: center;
-        }
-
-        /* navigasi */
-        .container nav {
-            background-color: rgb(0, 0, 0);
-            display: grid;
-            grid-template-columns: 1fr 0.8fr;
-        }
-        .container nav .menu,
-        .container nav .sub-menu {
-            /* background-color: blue; */
-            padding: 10px;
-            /* border: 2px solid green; */
-        }
-        /* .container nav .sub-menu{
-            display: grid;
-            grid-template-columns: 0.5fr 0.5fr 2fr;
-        } */
        
-        .container .menu-hide {
-            color: white;
-            position: relative;
-            padding: 10px;
-            display: none;
-            top: 0px;
-        }
-        .container nav .menu a {
-            color: white;
-            margin: 15px;
-        }
-        .container nav .sub-menu {
-            /* background-color: yellow; */
-            color: white;
-            display: grid;
-            grid-template-columns: 1fr 0.5fr 0.8fr;
-            text-align: center;
-        }
-
-        /* utama */
-        .container .utama {
-            display: grid;
-            grid-template-columns: 1fr 4fr;
-            height: 89vh;
-        }
-        .container .utama .side{
-            background-color: rgb(181, 171, 216);
-            list-style: none;
-            justify-items: center;
-            font-size: 1rem;
-            line-height: 1.6rem;
-            text-align: center;
-        }
-        .container .utama .main{
-            background-color: rgb(124, 175, 137);
-            /* display: grid; */
-            /* grid-template-columns: 1fr 1fr 1fr; */
-            justify-items: center;
-            line-height: 1.5rem;
-        }
-
-		/* responsive */
-        @media (max-width: 450px){
-			/* navigasi */
-            .container nav {
-                font-size: 0.5rem;
-                grid-template-columns: 0.3fr 1fr;
-            }
-            .container nav .menu {
-                position: absolute;
-                top: 66px;
-                background-color: brown;
-                /* left: -170px; */
-                display: none;
-            }
-            .container nav .menu-hide {
-                display: block;
-                position: relative;
-                z-index: 5;
-            }
-            .container nav .menu-hide:hover .container nav .menu {
-                display: block;
-                background-color: brown;
-            }
-
-			/* utama */
-			.container .utama{
-                grid-template-columns: 1fr;
-            }
-            .container .utama .side{
-                text-align: center;
-                padding: 10px;
-            }
-            .container .utama .main{
-                height: 400px;
-                overflow: scroll;
-            }
-
-			
-		}
     </style>
 </head>
 <body>
@@ -228,8 +89,8 @@ if(!isset($_SESSION["username"])){
                                 <td>$trans[no]</td>
                                 <td>$trans[tanggal]</td>
                                 <td>$trans[bulan]</td>
-                                <td>$trans[debit]</td>
-                                <td>$trans[kredit]</td>
+                                <td align='right'>" . number_format($trans['debit'], 0, ',', '.') . "</td>
+                                <td align='right'>" . number_format($trans['kredit'], 0, ',', '.') . "</td>
                                 <td>$trans[transaksi]</td>
                                 <td>$trans[type]</td>
                                 <td>$trans[bank]</td>
