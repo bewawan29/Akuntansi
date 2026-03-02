@@ -1,13 +1,13 @@
 <?php
     session_start();
     if(!isset($_SESSION["username"])){
-      header("Location : ../TH_2026/index.php");
+      header("Location: ../TH_2026/index.php");
       exit;
     }
     include ("../koneksi2026.php");
-include ("2026hitungjanuari.php");
-include ("../hitung2026.php");
-include ("../2026hitung.php");
+    include ("2026hitungjanuari.php");
+    include ("../hitung2026.php");
+    include ("../2026hitung.php");
 ?>
 
 <!DOCTYPE html>
@@ -16,158 +16,10 @@ include ("../2026hitung.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../tylemaster.css">
+    <link rel="stylesheet" href="../../stylemaster.css">
+    <link rel="stylesheet" href="../../style2026type.css?v=<?php echo time(); ?>">
     <style>
-        * {
-            margin: 0px;
-            padding: 0px;
-            box-sizing: border-box;
-            text-decoration: none;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: rgb(245, 195, 155);
-        }
-
-        /* judul */
-        .container .judul {
-            background-color: aqua;
-            display: grid;
-            grid-template-columns: 0.5fr 1fr 0.5fr;
-            /* width: 100vw; */
-        }
-        .container .judul .judul1 {
-            font-size: 0.6rem;
-        }
-        .container .judul .judul2 {
-            text-align: center;
-        }
-
-        /* navigasi */
-        .container nav {
-            background-color: rgb(0, 0, 0);
-            display: grid;
-            grid-template-columns: 1fr 0.8fr;
-        }
-        .container nav .menu,
-        .container nav .sub-menu {
-            /* background-color: blue; */
-            padding: 10px;
-            /* border: 2px solid green; */
-        }
-        /* .container nav .sub-menu{
-            display: grid;
-            grid-template-columns: 0.5fr 0.5fr 2fr;
-        } */
-       
-        .container .menu-hide {
-            color: white;
-            position: relative;
-            padding: 10px;
-            display: none;
-            top: 0px;
-        }
-        .container nav .menu a {
-            color: white;
-            margin: 15px;
-        }
-        .container nav .sub-menu {
-            /* background-color: yellow; */
-            color: white;
-            display: grid;
-            grid-template-columns: 1fr 0.5fr 0.8fr;
-            text-align: center;
-        }
-
-        /* utama */
-        .container .utama {
-            display: grid;
-            grid-template-columns: 1fr 4fr;
-            height: 89vh;
-        }
-        .container .utama .side{
-            background-color: rgb(181, 171, 216);
-            /* justify-items: center; */
-            font-size: 1rem;
-            line-height: 1.7rem;
-            /* text-align: center; */
-        }
-        .container .utama .side .side1,
-            .container .utama .side .side2,
-            .container .utama .side .side3{
-                border: 1px solid green;
-                padding: 10px;
-                font-size: 1rem;
-            }
-        .container .utama .main{
-            background-color: rgb(124, 175, 137);
-            line-height: 1.5rem;
-            display:grid;
-            grid-template-columns:1fr 1fr 1fr 1fr
-            /* justify-items:center; */
-            /* overflow: scroll; */
-        }
-        .container .utama .main .main1,
-        .container .utama .main .main2,
-        .container .utama .main .main3,
-        .container .utama .main .main4{
-            padding: 5px;
-        }
-
-        /* responsive */
-        @media (max-width: 450px){
-            /* navigasi */
-            .container nav {
-                font-size: 0.5rem;
-                grid-template-columns: 0.3fr 1fr;
-            }
-            .container nav .menu {
-                position: absolute;
-                top: 66px;
-                background-color: brown;
-                /* left: -170px; */
-                display: none;
-            }
-            .container nav .menu-hide {
-                display: block;
-                position: relative;
-                z-index: 5;
-            }
-            .container nav .menu-hide:hover .container nav .menu {
-                display: block;
-                background-color: brown;
-            }
-
-            /* utama */
-			.container .utama{
-                grid-template-columns: 1fr;
-            }
-            .container .utama .side{
-                text-align: center;
-                
-            }
-            .container .utama .side .side1,
-            .container .utama .side .side2,
-            .container .utama .side .side3{
-                border: 1px solid green;
-                padding: 10px;
-                font-size: 1rem;
-            }
-            .container .utama .main{
-                text-align: center;
-                height: 400px;
-                overflow: scroll;
-            }
-            .container .utama .main .main1,
-            .container .utama .main .main2,
-            .container .utama .main .main3,
-            .container .utama .main .main4{
-                border: 1px solid green;
-                padding: 10px;
-                font-size: 1rem;
-            }
-        }
+        
     </style>
 </head>
 <body>
@@ -229,7 +81,7 @@ include ("../2026hitung.php");
 
             <div class="main">
                 <div class="main1">
-                    <p>januari 2025 :</p> <br>
+                    <p>Januari 2026 :</p> <br>
                         Rumah : <br>
                         <input type="text" value="<?php echo ""."".number_format($saldo_rumah_januari,2,",",".");?>"></td> <br>
                         Makan : <br>

@@ -68,7 +68,7 @@ if(!isset($_SESSION["username"])){
                 Total Kredit :
                 <input type="text" value="<?php echo ""."".number_format($output_kredit_februari,2,",",".");?>"><br>
                 Total Saldo :
-                <input type="text" value="<?php echo ""."".number_format($saldo_februari,2,",",".");?>">
+                <input type="text" value="<?php echo ""."".number_format($saldo_total_februari,2,",",".");?>">
             </div>
             <div class="main">
                 <table>
