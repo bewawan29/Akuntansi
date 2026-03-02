@@ -4,6 +4,20 @@ include ("koneksi2026.php")
 ?>
 
 <?php
+    // Ambil Debit dan Kredit sekaligus dalam satu query
+    $query = "SELECT SUM(debit) AS total_debit, SUM(kredit) AS total_kredit 
+              FROM tabel_transaksi";
+    $query_result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($query_result);
+
+    // Gunakan operator ?? 0 agar jika data kosong, variabel berisi angka 0 (bukan error)
+    $output_debit_total  = $row['total_debit'] ?? 0;
+    $output_kredit_total = $row['total_kredit'] ?? 0;
+
+    // Anda juga bisa langsung hitung saldonya di sini
+    $saldo_total = $output_debit_total - $output_kredit_total;
+?>
+<?php
 $query="SELECT  SUM(debit) AS sum FROM tabel_transaksi";
 $query_result=mysqli_query($koneksi, $query);
 while($row=mysqli_fetch_assoc($query_result)){

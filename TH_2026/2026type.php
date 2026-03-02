@@ -15,151 +15,10 @@ include_once ("2026hitung.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="tyleversi.css">
+    <link rel="stylesheet" href="../stylemaster.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../style2026type.css?v=<?php echo time(); ?>">
     <style>
-        * {
-            margin: 0px;
-            padding: 0px;
-            box-sizing: border-box;
-            text-decoration: none;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: rgb(245, 195, 155);
-        }
-
-        /* judul */
-        .container .judul {
-            background-color: aqua;
-            display: grid;
-            grid-template-columns: 0.5fr 1fr 0.5fr;
-            /* width: 100vw; */
-        }
-        .container .judul .judul1 {
-            font-size: 0.6rem;
-        }
-        .container .judul .judul2 {
-            text-align: center;
-        }
-
-        /* navigasi */
-        .container nav {
-            background-color: rgb(0, 0, 0);
-            display: grid;
-            grid-template-columns: 1fr 0.8fr;
-        }
-        .container nav .menu,
-        .container nav .sub-menu {
-            /* background-color: blue; */
-            padding: 10px;
-            /* border: 2px solid green; */
-        }
-        /* .container nav .sub-menu{
-            display: grid;
-            grid-template-columns: 0.5fr 0.5fr 2fr;
-        } */
-       
-        .container .menu-hide {
-            color: white;
-            position: relative;
-            padding: 10px;
-            display: none;
-            top: 0px;
-        }
-        .container nav .menu a {
-            color: white;
-            margin: 15px;
-        }
-        .container nav .sub-menu {
-            /* background-color: yellow; */
-            color: white;
-            display: grid;
-            grid-template-columns: 1fr 0.5fr 0.8fr;
-            text-align: center;
-        }
-
-        /* utama */
-        .container .utama {
-            display: grid;
-            grid-template-columns: 1fr 4fr;
-            height: 89vh;
-        }
-        .container .utama .side{
-            background-color: rgb(181, 171, 216);
-            list-style: none;
-            justify-items: center;
-            font-size: 1.3rem;
-            line-height: 4rem;
-            text-align: center;
-        }
-        .container .utama .main{
-            background-color: rgb(124, 175, 137);
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            justify-items: center;
-            line-height: 1.5rem;
-        }
-
         
-
-        /* responsive */
-        @media (max-width: 450px){
-            /* judul */
-            .container .judul {
-                background-color: blue;
-                color: white;
-                font-size: 0.8rem;
-                padding: 5px;
-            }
-
-            /* navigasi */
-            .container nav {
-                font-size: 0.6rem;
-                grid-template-columns: 0.2fr 1fr;
-            }
-            .container nav .menu {
-                position: absolute;
-                top: 66px;
-                background-color: brown;
-                /* left: -170px; */
-                display: none;
-            }
-            .container nav .menu-hide {
-                display: block;
-                position: relative;
-                z-index: 5;
-            }
-            .container nav .menu-hide:hover .container nav .menu {
-                display: block;
-                background-color: brown;
-            }
-
-            /* utama */
-            .container .utama {
-                display: grid;
-                grid-template-columns: 1fr;
-            }
-            .container .utama .main{
-                display: grid;
-                grid-template-columns: 1fr;
-            }
-            .container .utama .main .main1,
-            .container .utama .main .main2,
-            .container .utama .main .main3{
-                border: 1px solid green;
-                padding: 5px;
-                font-size: 1rem;
-            }
-
-            /* footer */
-            /* .footer, input{
-                font-size: 0.8rem;
-            }
-            input{
-                width: 100px;
-            } */
-        }
     </style>
 </head>
 <body>
@@ -194,7 +53,14 @@ include_once ("2026hitung.php");
     </nav>
 
     <div class="utama">
-        <div class="side"></div>
+        <div class="side">
+            Total Debit :
+                <input type="text" value="<?php echo ""."".number_format($output_debit_total,2,",",".");?>"><br>
+                Total Kredit :
+                <input type="text" value="<?php echo ""."".number_format($output_kredit_total,2,",",".");?>"><br>
+                Total Saldo :
+                <input type="text" value="<?php echo ""."".number_format($saldo_total,2,",",".");?>">
+        </div>
         <div class="main">
             <div class="main1">
                 <p>Umum :</p> <br>
