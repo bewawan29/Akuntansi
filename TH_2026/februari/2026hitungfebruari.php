@@ -17,7 +17,7 @@ include_once __DIR__ . "/../koneksi2026.php";
     $output_kredit_februari = $row['total_kredit'] ?? 0;
     
     // Anda juga bisa langsung hitung saldonya di sini
-    $saldo_februari = $output_debit_februari - $output_kredit_februari;
+    $saldo_total_februari = $output_debit_februari - $output_kredit_februari;
 ?>
 
 <!-- rumah februari -->

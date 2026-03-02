@@ -64,7 +64,7 @@ button {
   .container .judul {
     background-color: blue;
     color: white;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     padding: 5px;
   }
 
@@ -77,9 +77,10 @@ button {
     position: absolute;
     top: 66px;
     background-color: brown;
-    left: -370px;
+    left: -270px;
     /* display: none; */
     transition: 0.5s;
+    width: 120px; /* Lebar menu yang sesuai dengan konten */
   }
   .container nav .menu-hide {
     display: block;

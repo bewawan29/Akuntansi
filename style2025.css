@@ -95,6 +95,7 @@
     left: -290px;
     /* display: none; */
     transition: 0.5s;
+    width: 120px;
   }
   .container nav .menu-hide {
     display: block;

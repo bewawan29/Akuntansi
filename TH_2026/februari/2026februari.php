@@ -15,7 +15,7 @@ if(!isset($_SESSION["username"])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2026 februari</title>
-    <link rel="stylesheet" href="../../stylemaster.css">
+    <link rel="stylesheet" href="../../stylemaster.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../../style2026januari.css?v=<?php echo time(); ?>">
     <style>
        
@@ -32,6 +32,9 @@ if(!isset($_SESSION["username"])){
         <nav>
             <div class="menu-hide" onclick="muncul()">MENU</div>
             <div class="menu" id="hide">
+                <div class="menu-hide" onclick="tutup()" >
+                TUTUP [X]
+                </div>
                 <a href="../TH_2026/logout.php">LOGOUT</a>
                 <a href="../2026.php">BACK</a>
                 <a href="2026februaridetail.php">DETAIL</a>
@@ -47,7 +50,13 @@ if(!isset($_SESSION["username"])){
             <script src="../mundur2026.js?v=<?php echo time(); ?>"></script>
             <script>
                 function muncul() {
-                    document.getElementById("hide").style.display = "block";
+                    // Menggeser menu ke posisi 0 (muncul dari kiri)
+                    document.getElementById("hide").style.left = "0px";
+                }
+
+                function tutup() {
+                    // Mengembalikan menu ke kiri luar layar
+                    document.getElementById("hide").style.left = "-100%";
                 }
             </script>
         </nav>

@@ -46,3 +46,42 @@ button {
   line-height: 1.5rem;
   overflow: scroll;
 }
+
+/* responsive */
+@media only screen and (max-width: 450px) {
+  /* judul */
+  .container .judul {
+    background-color: blue;
+    color: white;
+    font-size: 0.7rem;
+    padding: 5px;
+  }
+
+  /* navigasi */
+  .container nav {
+    font-size: 0.6rem;
+    grid-template-columns: 0.2fr 1fr;
+  }
+  .container nav .menu {
+    position: absolute;
+    top: 66px;
+    background-color: brown;
+    left: -370px;
+    /* display: none; */
+    transition: 0.5s;
+  }
+  .container nav .menu-hide {
+    display: block;
+    position: relative;
+    z-index: 5;
+  }
+  .container nav .menu-hide:hover .container nav .menu {
+    display: block;
+    background-color: brown;
+  }
+
+  /* utama */
+  .container .utama {
+    grid-template-columns: 1fr;
+  }
+}

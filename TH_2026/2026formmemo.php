@@ -15,7 +15,7 @@ include_once ("function2026.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FORM MEMO 2026</title>
     <link rel="stylesheet" href="../stylemaster.css">
-    <link rel="stylesheet" href="../style2025formmemo.css">
+    <link rel="stylesheet" href="../style2025formmemo.css?v=<?php echo time(); ?>">
 </head>
 <body>
     <div class="container">

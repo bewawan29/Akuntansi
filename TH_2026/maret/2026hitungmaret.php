@@ -17,7 +17,7 @@ include_once __DIR__ . "/../koneksi2026.php";
     $output_kredit_maret = $row['total_kredit'] ?? 0;
     
     // Anda juga bisa langsung hitung saldonya di sini
-    $saldo_maret = $output_debit_maret - $output_kredit_maret;
+    $saldo_total_maret = $output_debit_maret - $output_kredit_maret;
 ?>
 
 <!-- rumah maret -->

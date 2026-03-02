@@ -51,7 +51,9 @@ include_once ("maret/2026hitungmaret.php");
                 <a href="../logout.php">LOGOUT</a>
                 <a href="../tahun.php">TAHUN</a>
                 <a href="2026type.php">Umum/Pribadi</a>
-                <button onclick="window.print()">Print</button>
+                <button onclick="window.print()" style="background-color: steelblue; color: white; cursor: pointer; border: none; border-radius: 5px; width: 80px;">
+                    Cetak
+                </button>
             </div>
 
             <div class="sub-menu">
@@ -106,11 +108,11 @@ include_once ("maret/2026hitungmaret.php");
             <div class="main">
                 <div class="main1">
                     <a href="januari/2026januari.php" id="p02">JANUARI </a> <br>
-                    <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_januari,2,",",".");?>"> <br>                        
+                    <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_januari,2,",",".");?>"> <br>                        
                     <a href="februari/2026februari.php" id="p02">FEBRUARI </a> <br>
-                    <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_februari,2,",",".");?>"> <br>
+                    <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_februari,2,",",".");?>"> <br>
                     <a href="maret/2026maret.php" id="p02">MARET </a> <br>
-                    <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_maret,2,",",".");?>"> <br>                           
+                    <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_maret,2,",",".");?>"> <br>                           
                     <a href="april/2025april.php" id="p02">APRIL </a> <br>
                     <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_april,2,",",".");?>"> <br>
                     <a href="mei/2025mei.php" id="p02">MEI </a> <br>
