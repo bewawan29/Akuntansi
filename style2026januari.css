@@ -1,0 +1,48 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 2px solid green;
+}
+th {
+  background-color: steelblue;
+  color: black;
+  height: 30px;
+  border: 1px solid green;
+}
+
+td {
+  border: 1px solid green;
+  text-align: center !important;
+  vertical-align: middle; /* Supaya rata tengah secara vertikal juga */
+}
+td[align="right"] {
+  text-align: right !important;
+  padding-right: 10px; /* Tambah sedikit jarak dari garis kanan agar tidak nempel */
+}
+button {
+  width: 100px;
+  height: 30px;
+  color: red;
+}
+
+/* utama */
+.container .utama {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  height: 89vh;
+}
+.container .utama .side {
+  background-color: rgb(181, 171, 216);
+  /* justify-items: center; */
+  font-size: 1rem;
+  line-height: 1.7rem;
+  /* text-align: center; */
+}
+.container .utama .side input {
+  text-align: right;
+}
+.container .utama .main {
+  background-color: rgb(124, 175, 137);
+  line-height: 1.5rem;
+  overflow: scroll;
+}
