@@ -76,6 +76,7 @@ include ("koneksi.php");
                 <li><a href="http://login.tailscale.com">Tailscale</a></li>
                 <li><a href="http://100.90.72.23:8384/">Syncthing</a></li>
                 <li><a href="https://www.w3schools.com">Tutorial coding</a></li>
+                <a href="gantipassword.php" style="color: blue;">Ganti Password</a>
                 </div>
                 <!--
                 <div class="main3">

@@ -53,7 +53,7 @@
 			</tr>
 			<tr>
 				<td width="100">Username</td>
-				<td> <input type="password" name="username"> </td>
+				<td> <input type="text" name="username"> </td>
 			</tr>
 			<tr>
 				<td> Password </td>
