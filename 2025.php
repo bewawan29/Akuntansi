@@ -28,7 +28,7 @@ include ("desember/2025hitungdesember.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2025</title>
     <link rel="stylesheet" href="stylemaster.css">
-    <link rel="stylesheet" href="style2025.css">
+    <link rel="stylesheet" href="../style2025.css?v=<?php echo time(); ?>">
     <!-- <style>
         * {
             margin: 0px;

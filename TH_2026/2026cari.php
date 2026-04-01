@@ -44,7 +44,7 @@ if(isset($_POST['proses'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pencarian Multi-Filter 2026</title>
     <link rel="stylesheet" href="../stylemaster.css">
-    <link rel="stylesheet" href="../style2026cari.css">
+    <link rel="stylesheet" href="../style2026cari.css?v=<?php echo time(); ?>">
     <style>
         table { border-collapse: collapse; width: 100%; border: 2px solid green; }
         th { background-color: steelblue; color: white; padding: 8px; border: 1px solid green; font-size: 0.75rem; }

@@ -139,6 +139,7 @@ $data=mysqli_fetch_array($sql);
             <td><input type="text" name="bagian" value="<?php echo $data['bagian'];?>"> </td>
             <td>
                 <select type="text" name="bagian">
+                        <option></option>
                         <option>Umum</option>
                         <option>Pribadi</option>
                         <option>Bank</option>

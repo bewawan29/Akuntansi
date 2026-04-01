@@ -90,12 +90,14 @@
   }
   .container nav .menu {
     position: absolute;
-    top: 66px;
+    top: 61px;
     background-color: brown;
     left: -290px;
     /* display: none; */
     transition: 0.5s;
-    width: 120px;
+    width: 100px;
+    line-height: 30px;
+    padding: 1px;
   }
   .container nav .menu-hide {
     display: block;

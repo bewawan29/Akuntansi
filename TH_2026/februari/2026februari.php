@@ -5,7 +5,6 @@ if(!isset($_SESSION["username"])){
   exit;
 }
     include_once ("../koneksi2026.php");
-    //include ("../hitung.php");
 	include_once ("2026hitungfebruari.php");
 ?>
 
@@ -47,7 +46,7 @@ if(!isset($_SESSION["username"])){
                 <div id="count"></div>
             </div>
             <script src="../../waktu.js"></script>
-            <script src="../mundur2026.js?v=<?php echo time(); ?>"></script>
+            <script src="mundur2026februari.js?v=<?php echo time(); ?>"></script>
             <script>
                 function muncul() {
                     // Menggeser menu ke posisi 0 (muncul dari kiri)

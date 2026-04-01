@@ -15,32 +15,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../tylemaster.css">
-    <style>
-        table{
-            border-collapse:collapse;
-            border:2px solid green;
-            
-        }
-        th{
-            background-color:steelblue;
-            color:black;
-            height:30px;
-            border:1px solid green;
-        }
-        td{
-            border:1px solid green;
-            text-align: center;
-        }
-        td[align="right"] {
-            text-align: right !important;
-            padding-right: 10px; /* Tambah sedikit jarak dari garis kanan agar tidak nempel */
-        }
-        button{
-            width: 100px;
-            height: 30px;
-            color:red;
-        }
+    <link rel="stylesheet" href="../stylemaster.css">
+    <link rel="stylesheet" href="../stylegabung.css?v=<?php echo time(); ?>">
+    <!--<style>
+        
 
         * {
             margin: 0px;
@@ -112,24 +90,10 @@
             text-align: right;
         }
 
-        /* utama */
-        .container .utama {
-            display: grid;
-            grid-template-columns: 1fr 4fr;
-            height: 89vh;
-        }
-        .container .utama .side{
-            background-color: rgb(181, 171, 216);
-            font-size: 1rem;
-        }
-        .container .utama .side .side1,
-        .container .utama .side .side2{
-            padding: 10px;
-        }
-        .container .utama .main{
-            background-color: rgb(124, 175, 137);
-            justify-items:center;
-        }
+        
+        
+        
+        
 
         /* responsive */
         @media only screen and (max-width: 450px){
@@ -205,7 +169,7 @@
             }
         }
         
-    </style>
+    </style>-->
 </head>
 <body>
     <div class="container">

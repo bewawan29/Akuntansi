@@ -43,7 +43,7 @@
                 <div id="count"></div>
             </div>
             <script src="../../waktu.js"></script>
-            <script src="../mundur2026.js"></script>
+            <script src="mundur2026maret.js?v=<?php echo time(); ?>"></script>
             <script>
                 function muncul() {
                     document.getElementById("hide").style.display = "block";

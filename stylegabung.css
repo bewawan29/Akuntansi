@@ -1,0 +1,96 @@
+/* utama */
+.container .utama {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  height: 89vh;
+}
+.container .utama .side {
+  background-color: rgb(181, 171, 216);
+  font-size: 1rem;
+}
+.container .utama .side .side1,
+.container .utama .side .side2 {
+  padding: 10px;
+}
+
+.container .utama .main {
+  background-color: rgb(124, 175, 137);
+  justify-items: center;
+}
+
+table {
+  border-collapse: collapse;
+  border: 2px solid green;
+}
+th {
+  background-color: steelblue;
+  color: black;
+  height: 30px;
+  border: 1px solid green;
+}
+td {
+  border: 1px solid green;
+  text-align: center;
+}
+td[align="right"] {
+  text-align: right !important;
+  padding-right: 10px; /* Tambah sedikit jarak dari garis kanan agar tidak nempel */
+}
+button {
+  width: 100px;
+  height: 30px;
+  color: red;
+}
+
+/* responsive */
+@media only screen and (max-width: 450px) {
+  .container .judul {
+    background-color: blue;
+    color: white;
+    font-size: 0.5rem;
+    padding: 5px;
+  }
+
+  /* navigasi */
+  .container nav {
+    font-size: 0.6rem;
+    grid-template-columns: 0.2fr 1fr;
+  }
+  .container nav .menu {
+    position: absolute;
+    top: 61px;
+    background-color: brown;
+    left: -290px;
+    /* display: none; */
+    transition: 0.5s;
+    width: 100px;
+    line-height: 30px;
+    padding: 1px;
+  }
+  .container nav .menu-hide {
+    display: block;
+    position: relative;
+    z-index: 5;
+  }
+  .container nav .menu-hide:hover .container nav .menu {
+    display: block;
+    background-color: brown;
+  }
+
+  /* utama */
+  .container .utama {
+    grid-template-columns: 1fr;
+  }
+  .container .utama .side {
+    font-size: 0.8rem;
+    line-height: 1.5rem;
+  }
+  .container .utama .main {
+    font-size: 0.8rem;
+    justify-items: left;
+  }
+  .container .utama .main .main1,
+  .container .utama .main .main2 {
+    border: 1px solid blue;
+  }
+}

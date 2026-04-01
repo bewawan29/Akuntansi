@@ -98,6 +98,7 @@
 
                     <label>Bagian</label>
                     <select name="bagian">
+                        <option value="">- Pilih Bagian -</option>
                         <option>Umum</option>
                         <option>Pribadi</option>
                         <option>Bank</option>

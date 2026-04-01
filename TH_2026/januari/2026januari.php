@@ -47,7 +47,7 @@ if(!isset($_SESSION["username"])){
                 <div id="count"></div>
             </div>
             <script src="../../waktu.js"></script>
-            <script src="../mundur2026.js?v=<?php echo time(); ?>"></script>
+            <script src="mundur2026januari.js?v=<?php echo time(); ?>"></script>
             <script>
                 function muncul() {
                     // Menggeser menu ke posisi 0 (muncul dari kiri)
