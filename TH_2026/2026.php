@@ -11,12 +11,12 @@ include_once ("januari/2026hitungjanuari.php");
 include_once ("februari/2026hitungfebruari.php");
 include_once ("maret/2026hitungmaret.php");
 include_once ("april/2026hitungapril.php");
-//include ("mei/2025hitungmei.php");
-//include ("juni/2025hitungjuni.php");
-//include ("juli/2025hitungjuli.php");
-//include ("agustus/2025hitungagustus.php");
-//include ("september/2025hitungseptember.php");
-//include ("Oktober/2025hitungoktober.php");
+include_once ("mei/2026hitungmei.php");
+//include ("juni/2026hitungjuni.php");
+//include ("juli/2026hitungjuli.php");
+//include ("agustus/2026hitungagustus.php");
+//include ("september/2026hitungseptember.php");
+//include ("Oktober/2026hitungoktober.php");
 //include ("november/2025hitungnovember.php");
 //include ("desember/2025hitungdesember.php");
 
