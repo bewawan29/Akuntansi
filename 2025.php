@@ -1,24 +1,24 @@
 <?php
 session_start();
 if(!isset($_SESSION["username"])){
-  header("Location: index.php");
+  header("Location: ../index.php");
   exit;
 }
-include ("hitung.php");
-include ("koneksi.php");
-include ("2025hitung.php");
-include ("januari/2025hitungjanuari.php");
-include ("februari/2025hitungfebruari.php");
-include ("maret/2025hitungmaret.php");
-include ("april/2025hitungapril.php");
-include ("mei/2025hitungmei.php");
-include ("juni/2025hitungjuni.php");
-include ("juli/2025hitungjuli.php");
-include ("agustus/2025hitungagustus.php");
-include ("september/2025hitungseptember.php");
-include ("Oktober/2025hitungoktober.php");
-include ("november/2025hitungnovember.php");
-include ("desember/2025hitungdesember.php");
+
+include_once ("koneksi.php");
+include_once ("2025hitung.php");
+include_once ("januari/2025hitungjanuari.php");
+include_once ("februari/2025hitungfebruari.php");
+include_once ("maret/2025hitungmaret.php");
+include_once ("april/2025hitungapril.php");
+include_once ("mei/2025hitungmei.php");
+//include ("juni/2025hitungjuni.php");
+//include ("juli/2025hitungjuli.php");
+//include ("agustus/2025hitungagustus.php");
+//include ("september/2025hitungseptember.php");
+//include ("Oktober/2025hitungoktober.php");
+//include ("november/2025hitungnovember.php");
+//include ("desember/2025hitungdesember.php");
 
 ?>
 <!DOCTYPE html>
@@ -28,205 +28,10 @@ include ("desember/2025hitungdesember.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2025</title>
     <link rel="stylesheet" href="stylemaster.css">
-    <link rel="stylesheet" href="../style2025.css?v=<?php echo time(); ?>">
-    <!-- <style>
-        * {
-            margin: 0px;
-            padding: 0px;
-            box-sizing: border-box;
-            text-decoration: none;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: rgb(245, 195, 155);
-        }
-
-        /* judul */
-        .container .judul {
-            background-color: aqua;
-            display: grid;
-            grid-template-columns: 0.5fr 1fr 0.5fr;
-            /* width: 100vw; */
-        }
-        .container .judul .judul1 {
-            font-size: 0.6rem;
-        }
-        .container .judul .judul2 {
-            text-align: center;
-        }
-
-        /* navigasi */
-        .container nav {
-            background-color: rgb(0, 0, 0);
-            display: grid;
-            grid-template-columns: 1fr 0.8fr;
-        }
-        .container nav .menu,
-        .container nav .sub-menu {
-            /* background-color: blue; */
-            padding: 10px;
-            /* border: 2px solid green; */
-        }
-        /* .container nav .sub-menu{
-            display: grid;
-            grid-template-columns: 0.5fr 0.5fr 2fr;
-        } */
-       
-        .container .menu-hide {
-            color: white;
-            position: relative;
-            padding: 10px;
-            display: none;
-            top: 0px;
-        }
-        .container nav .menu a {
-            color: white;
-            margin: 15px;
-        }
-        .container nav .sub-menu {
-            /* background-color: yellow; */
-            color: white;
-            display: grid;
-            grid-template-columns: 1fr 0.5fr 0.8fr;
-            text-align: center;
-        }
-
-        /* utama */
-        .container .utama {
-            display: grid;
-            grid-template-columns: 1fr 4fr;
-            height: 89vh;
-        }
-        .container .utama .side{
-            background-color: rgb(181, 171, 216);
-            list-style: none;
-            justify-items: center;
-            font-size: 1.3rem;
-            line-height: 4rem;
-            text-align: center;
-        }
-        .container .utama .side .side1{
-            font-size: 1rem;
-            text-align: center;
-            line-height: 2rem;
-            padding: 10px 0;
-        }.container .utama .side .side1 a{
-            color: black;
-            font-weight: bold;          
-        }
-        .container .utama .side .side2{
-            font-size: 1rem;
-            line-height: 1.5rem;
-            padding: 10px 0;
-        }
-        .container .utama .main{
-            background-color: rgb(124, 175, 137);
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            justify-items: center;
-            line-height: 1.5rem;
-        }
-        .container .utama .main .main1,
-        .container .utama .main .main2,
-        .container .utama .main .main3{
-            margin-top: 20px;
-            font-size: 1rem;
-        }
-        .container .utama .main .main1 a,
-        .container .utama .main .main2 a,
-        .container .utama .main .main3 a{
-            color: black;
-        }
-
-        /* responsive */
-        @media only screen and (max-width: 450px) {
-            .container .judul {
-                background-color: blue;
-                color: white;
-                font-size: 0.8rem;
-                padding: 5px;
-            }
-
-            /* navigasi */
-            .container nav {
-                font-size: 0.6rem;
-                grid-template-columns: 0.2fr 1fr;
-            }
-            .container nav .menu {
-                position: absolute;
-                top: 66px;
-                background-color: brown;
-                left: -290px;
-                /* display: none; */
-                transition: 0.5s;
-            }
-            .container nav .menu-hide {
-                display: block;
-                position: relative;
-                z-index: 5;
-            }
-            .container nav .menu-hide:hover .container nav .menu {
-                display: block;
-                background-color: brown;
-            }
-           
-
-            /* utama */
-            .container .utama{
-                grid-template-columns: 1fr;
-            }
-            .container .utama .main{
-                grid-template-columns: 1fr;
-            }
-            .container .utama .main .main1,
-            .container .utama .main .main2,
-            .container .utama .main .main3{
-                border: 1px solid blue;
-            }
-
-            /* footer */
-            /* .container .footer{
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                
-            } */
-        }
-
-        @media only screen and (min-width: 460px) and (max-width:800px){
-            .container .judul {
-                background-color: salmon;
-                color: white;
-                font-size: 0.7rem;
-                padding: 5px;
-            }
-            /* navigasi */
-            .container nav {
-                font-size: 0.6rem;
-                grid-template-columns: 0.2fr 1fr;
-            }
-            .container nav .menu {
-                position: absolute;
-                top: 66px;
-                background-color: brown;
-                left: -290px;
-                /* display: none; */
-                transition: 0.5s;
-            }
-            .container nav .menu-hide {
-                display: block;
-                position: relative;
-                z-index: 5;
-            }
-            .container nav .menu-hide:hover .container nav .menu {
-                display: block;
-                background-color: brown;
-            }
-        }
-
-    </style> -->
+    <link rel="stylesheet" href="style2025.css?v=<?php echo time(); ?>">
+    <style>
+        
+    </style>
 </head>
 <body>
     <div class="versi"></div>
@@ -238,12 +43,17 @@ include ("desember/2025hitungdesember.php");
         </div>
         <nav>
             <div class="menu-hide" onclick="muncul()">MENU</div>
+            
             <div class="menu" id="hide">
-
-                <a href="logout.php">LOGOUT</a>
-                <a href="tahun.php">TAHUN</a>
+                <div class="menu-hide" onclick="tutup()" >
+                TUTUP [X]
+                </div>
+                <a href="../logout.php">LOGOUT</a>
+                <a href="../tahun.php">TAHUN</a>
                 <a href="2025type.php">Umum/Pribadi</a>
-                <button onclick="window.print()">Print</button>
+                <button onclick="window.print()" style="background-color: steelblue; color: white; cursor: pointer; border: none; border-radius: 5px; width: 80px;">
+                    Cetak
+                </button>
             </div>
 
             <div class="sub-menu">
@@ -251,14 +61,19 @@ include ("desember/2025hitungdesember.php");
                     <?php echo date("l, d-M-Y"); ?>
                 </div>               
                 <div id="clock"></div>
-                <div id="count" style="color: red;"></div>
+                <div id="count"></div>
             </div>
-            <script src="waktu.js"></script>
-            <script src="mundur.js"></script>
+            <script src="../waktu.js"></script>
+            <script src="mundur2025.js?v=<?php echo time(); ?>"></script>
             <script>
-                function muncul(){
-                    // document.getElementById("hide").style.display = "block";
+                function muncul() {
+                    // Menggeser menu ke posisi 0 (muncul dari kiri)
                     document.getElementById("hide").style.left = "0px";
+                }
+
+                function tutup() {
+                    // Mengembalikan menu ke kiri luar layar
+                    document.getElementById("hide").style.left = "-100%";
                 }
             </script>
         </nav>
@@ -272,6 +87,7 @@ include ("desember/2025hitungdesember.php");
                 </div>
                 <hr>
                 <div class="side2">
+                    <!--Data dari 2025hitung.php-->
                     Rumah : <br>
                     <input type="text" value="<?php echo ""."".number_format($saldo_rumah,2,",",".");?>"></td> <br>
                     Makan : <br>
@@ -281,6 +97,13 @@ include ("desember/2025hitungdesember.php");
                     <input type="text" value="<?php echo ""."".number_format($saldo_kesehatan,2,",",".");?>"></td> <br>
                     Lain-lain : <br>
                     <input type="text" value="<?php echo ""."".number_format($saldo_lain,2,",",".");?>"></td> <br>
+                    <br>
+                    <br>
+                    Umum : <br>
+                    <input type="text" value="<?php echo ""."".number_format($saldo_umum,2,",",".");?>"></td> <br>
+                    <br>
+                    Pribadi : <br>
+                    <input type="text" value="<?php echo ""."".number_format($saldo_pribadi,2,",",".");?>"></td> <br>
                 </div>
             </div>
             <div class="main">
@@ -297,6 +120,14 @@ include ("desember/2025hitungdesember.php");
                     <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_mei,2,",",".");?>"> <br>
                     <a href="juni/2025juni.php" id="p02">JUNI </a> <br>
                     <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_juni,2,",",".");?>"><br>
+                    <br><br>
+                    Debit 2025 :
+                    <br>
+                    <input type="text" id="p01" value="<?php echo ""."".number_format($output_debit_total,2,",",".");?>"><br>
+                    <br>
+                    Saldo 2025 :
+                    <br>
+                    <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total,2,",",".");?>"><br>
                 </div>
                 <div class="main2">
                     <a href="juli/2025juli.php" id="p02">JULI </a> <br>
@@ -311,6 +142,10 @@ include ("desember/2025hitungdesember.php");
                     <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_november,2,",",".");?>"> <br>
                     <a href="desember/2025desember.php" id="p02">DESEMBER </a> <br>
                     <input type="text" id="p01" value="<?php echo ""."".number_format($saldo_total_desember,2,",",".");?>">
+                    <br><br><br>
+                    Kredit 2025 :
+                    <br>
+                    <input type="text" id="p01" value="<?php echo ""."".number_format($output_kredit_total,2,",",".");?>"><br>
                 </div>
                 <div class="main3">
                     <p>BCA :</p>
@@ -329,5 +164,7 @@ include ("desember/2025hitungdesember.php");
 
         <!-- <div class="footer">FOOTER</div> -->
     </div>
+
+
 </body>
 </html>
