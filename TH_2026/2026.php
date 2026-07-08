@@ -14,7 +14,7 @@ include_once ("april/2026hitungapril.php");
 include_once ("mei/2026hitungmei.php");
 include_once ("juni/2026hitungjuni.php");
 include_once ("juli/2026hitungjuli.php");
-//include ("agustus/2026hitungagustus.php");
+include_once ("agustus/2026hitungagustus.php");
 //include ("september/2026hitungseptember.php");
 //include ("Oktober/2026hitungoktober.php");
 //include ("november/2025hitungnovember.php");
