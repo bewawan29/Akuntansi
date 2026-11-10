@@ -64,6 +64,7 @@ include_once("koneksi.php");
                 <li><a href="2025menu.php">2024</a></li>
                 <li><a href="2025.php">2025</a></li>
                 <li><a href="TH_2026/2026.php">2026</a></li>
+                <li><a href="TH_2027/2027.php">2027</a></li>
             </div>
             
             <div class="main">
